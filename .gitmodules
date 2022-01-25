@@ -1,0 +1,6 @@
+[submodule "packages/wasmtools"]
+	path = packages/wasmtools
+	url = git@github.com:DigitalArsenal/wasmtools.git
+[submodule "packages/flatbuffers"]
+	path = packages/flatbuffers
+	url = https://github.com/google/flatbuffers.git
