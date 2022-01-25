@@ -65,6 +65,7 @@ export default [
     plugins: [
       replacr(/const wasmBinary[^;]{1,};/, ``),
       replacr(/import[\s\S]{1,}@wasmer\/wasi["'`];[^;]{1,};/, `import WASI from "@wasmer/wasi";`),
+      replacr(/this.bindings.path/g, "this.bindings.path.default"),
       ...plugins
     ],
     external

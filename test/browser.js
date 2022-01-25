@@ -48,7 +48,7 @@ root_type Monster;
 (async function () {
   fs.mkdirpSync('/test');
   fs.writeFileSync("/test/monster.fbs", monster);
-  await fb.runCommand(["./flatc", "--ts", "-o", "/test", "/test/monster.fbs"]);
+  await fb.runCommand(["./flatc", "--js", "-o", "/test", "/test/monster.fbs"]);
   window.errPipe = fs.createReadStream("/dev/stderr");
   window.outPipe = fs.createReadStream("/dev/stdout");
   window.errPipe.on("data", data => {
@@ -57,8 +57,8 @@ root_type Monster;
   window.outPipe.on("data", data => {
     console.log(data.toString("utf8"));
   });
-
-  document.documentElement.innerHTML = `<h1>Main Thread</h1>${fs.readFileSync("/test/monster_generated.ts", { encoding: 'utf8' }).replace(/\n/g, '<br/>')}`;
+  window.fs = fs;
+  document.documentElement.innerHTML = `<h1>Main Thread</h1>${fs.readdirSync("/test/", { encoding: 'utf8' })}`;
 
   let flatWorker = new Worker("./worker.js", { type: "module" });
   flatWorker.onmessage = (msg) => {
