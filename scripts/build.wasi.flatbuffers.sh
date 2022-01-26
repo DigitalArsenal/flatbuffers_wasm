@@ -2,6 +2,8 @@
 export PATH=$PATH:~/.wasienv/bin/
 cd ./packages/flatbuffers
 git clean -fxd
+git reset HEAD --hard
+git checkout v2.0.5
 sed -i "s/#ifdef FLATBUFFERS_NO_ABSOLUTE_PATH_RESOLUTION/#if 1/" src/util.cpp
 sed -i "s/mkdir.*;/return;/" src/util.cpp
 sed -i "s/if (binary) {/if (false) {/" src/util.cpp
