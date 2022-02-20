@@ -8,4 +8,5 @@ const fs = require("fs");
   let fb = new flatc({ fs, rootDir });
 
   let result1 = await fb.runCommand(["./flatc", "--cpp", "-o", "/", "/monster.fbs"]);
+  console.log(result1);
 })();

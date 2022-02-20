@@ -42,7 +42,7 @@
     "test:cjs": "node --experimental-wasi-unstable-preview1 ./test/test.cjs",
     "test:main": "node --experimental-wasi-unstable-preview1 ./test/test.js",
     "build": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers && npm run build:transform && npm run build:browser",
-    "build:emscripten": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers:emscripten && npm run build:browser",
+    "build:emscripten": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers:emscripten",
     "build:transform": "node ./scripts/transform.mjs --src ./src/flatc.wasm --out ./src/flatc.wasm",
     "build:flatbuffers": "./scripts/build.wasi.flatbuffers.sh",
     "build:flatbuffers:emscripten": "./scripts/build.emscripten.flatbuffers.sh",
