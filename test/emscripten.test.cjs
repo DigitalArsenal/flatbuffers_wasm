@@ -8,9 +8,8 @@ flatc({
 }).then(m => {
 
     m.FS.writeFile("/monsterFS.fbs", `// Example IDL file for our monster's schema.
-
     namespace MyGame.Sample;
-    
+
     enum Color:byte { Red = 0, Green, Blue = 2 }
     
     union Equipment { Weapon } // Optionally add more tables.
@@ -40,8 +39,11 @@ flatc({
     }
     
     root_type Monster;
-    `);
-    m.main(["--ts", "-o", "/", "/monsterFS.fbs"]);
-    console.log(m.FS.readFile("/monsterFS.fbs", { encoding: 'utf8' }));
-    console.log(m.FS.readdir("/"))
+    `.replace(/namespace .*/g,""));
+    
+    m.FS.mkdir("/my-game");
+    m.FS.mkdir("/my-game/sample");
+    m.main(["--ts", "/monsterFS.fbs"]);
+    console.log(m.FS.readdir("/"));
+    console.log(m.FS.readFile("/monsterFS.ts", { encoding: "utf8" }));
 })

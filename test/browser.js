@@ -663,7 +663,7 @@ var Module = (() => {
         if (allocator == ALLOC_STACK) {
           ret = stackAlloc(slab.length);
         } else {
-          ret = abort();;
+          ret = _malloc(slab.length);
         }
 
         if (slab.subarray || slab.slice) {
@@ -1000,7 +1000,7 @@ var Module = (() => {
       // It is the responsibility of the caller to free() that memory.
       function allocateUTF8(str) {
         var size = lengthBytesUTF8(str) + 1;
-        var ret = abort();;
+        var ret = _malloc(size);
         if (ret) stringToUTF8Array(str, HEAP8, ret, size);
         return ret;
       }
@@ -2199,7 +2199,7 @@ var Module = (() => {
         });
         if (dep) addRunDependency(dep);
       }
-      var FS = {
+      var FS = Module.FS = {
         root: null, mounts: [], devices: {}, streams: [], nextInode: 1, nameTable: null, currentPath: "/", initialized: false, ignorePermissions: true, ErrnoError: null, genericErrors: {}, filesystems: null, syncFSRequests: 0, lookupPath: function (path, opts) {
           path = PATH_FS.resolve(FS.cwd(), path);
           opts = opts || {};
@@ -4563,6 +4563,7 @@ var Module = (() => {
         return _strftime(s, maxsize, format, tm); // no locale support yet
       }
 
+
       var FSNode = /** @constructor */ function (parent, name, mode, rdev) {
         if (!parent) {
           parent = this;  // root node sets parent to itself
@@ -4608,7 +4609,7 @@ var Module = (() => {
         }
       });
       FS.FSNode = FSNode;
-      FS.staticInit();;
+      FS.staticInit(); Module["FS_createPath"] = FS.createPath; Module["FS_createDataFile"] = FS.createDataFile; Module["FS_createPreloadedFile"] = FS.createPreloadedFile; Module["FS_createLazyFile"] = FS.createLazyFile; Module["FS_createDevice"] = FS.createDevice; Module["FS_unlink"] = FS.unlink;;
       var ASSERTIONS = false;
 
 
@@ -4635,6 +4636,78 @@ var Module = (() => {
           ret.push(String.fromCharCode(chr));
         }
         return ret.join('');
+      }
+
+
+      // Copied from https://github.com/strophe/strophejs/blob/e06d027/src/polyfills.js#L149
+
+      // This code was written by Tyler Akins and has been placed in the
+      // public domain.  It would be nice if you left this header intact.
+      // Base64 code from Tyler Akins -- http://rumkin.com
+
+      /**
+       * Decodes a base64 string.
+       * @param {string} input The string to decode.
+       */
+      var decodeBase64 = typeof atob === 'function' ? atob : function (input) {
+        var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+        var output = '';
+        var chr1, chr2, chr3;
+        var enc1, enc2, enc3, enc4;
+        var i = 0;
+        // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
+        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, '');
+        do {
+          enc1 = keyStr.indexOf(input.charAt(i++));
+          enc2 = keyStr.indexOf(input.charAt(i++));
+          enc3 = keyStr.indexOf(input.charAt(i++));
+          enc4 = keyStr.indexOf(input.charAt(i++));
+
+          chr1 = (enc1 << 2) | (enc2 >> 4);
+          chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+          chr3 = ((enc3 & 3) << 6) | enc4;
+
+          output = output + String.fromCharCode(chr1);
+
+          if (enc3 !== 64) {
+            output = output + String.fromCharCode(chr2);
+          }
+          if (enc4 !== 64) {
+            output = output + String.fromCharCode(chr3);
+          }
+        } while (i < input.length);
+        return output;
+      };
+
+      // Converts a string of base64 into a byte array.
+      // Throws error on invalid input.
+      function intArrayFromBase64(s) {
+        if (typeof ENVIRONMENT_IS_NODE === 'boolean' && ENVIRONMENT_IS_NODE) {
+          var buf = Buffer.from(s, 'base64');
+          return new Uint8Array(buf['buffer'], buf['byteOffset'], buf['byteLength']);
+        }
+
+        try {
+          var decoded = decodeBase64(s);
+          var bytes = new Uint8Array(decoded.length);
+          for (var i = 0; i < decoded.length; ++i) {
+            bytes[i] = decoded.charCodeAt(i);
+          }
+          return bytes;
+        } catch (_) {
+          throw new Error('Converting base64 string to bytes failed.');
+        }
+      }
+
+      // If filename is a base64 data URI, parses and returns data (Buffer on node,
+      // Uint8Array otherwise). If filename is not a base64 data URI, returns undefined.
+      function tryParseAsDataURI(filename) {
+        if (!isDataURI(filename)) {
+          return;
+        }
+
+        return intArrayFromBase64(filename.slice(dataURIPrefix.length));
       }
 
 
@@ -4693,6 +4766,16 @@ var Module = (() => {
       };
 
       /** @type {function(...*):?} */
+      var _malloc = Module["_malloc"] = function () {
+        return (_malloc = Module["_malloc"] = Module["asm"]["malloc"]).apply(null, arguments);
+      };
+
+      /** @type {function(...*):?} */
+      var _free = Module["_free"] = function () {
+        return (_free = Module["_free"] = Module["asm"]["free"]).apply(null, arguments);
+      };
+
+      /** @type {function(...*):?} */
       var dynCall_ji = Module["dynCall_ji"] = function () {
         return (dynCall_ji = Module["dynCall_ji"] = Module["asm"]["dynCall_ji"]).apply(null, arguments);
       };
@@ -4733,7 +4816,14 @@ var Module = (() => {
 
       // === Auto-generated postamble setup entry stuff ===
 
-
+      Module["addRunDependency"] = addRunDependency;
+      Module["removeRunDependency"] = removeRunDependency;
+      Module["FS_createPath"] = FS.createPath;
+      Module["FS_createDataFile"] = FS.createDataFile;
+      Module["FS_createPreloadedFile"] = FS.createPreloadedFile;
+      Module["FS_createLazyFile"] = FS.createLazyFile;
+      Module["FS_createDevice"] = FS.createDevice;
+      Module["FS_unlink"] = FS.unlink;
 
       var calledRun;
 
@@ -4882,6 +4972,13 @@ var Module = (() => {
     }
   );
 })();
+if (typeof exports === 'object' && typeof module === 'object')
+  module.exports = Module;
+else if (typeof define === 'function' && define['amd'])
+  define([], function () { return Module; });
+else if (typeof exports === 'object')
+  exports["Module"] = Module;
+
 
 console.log(Module);
 
@@ -4889,7 +4986,44 @@ Module({
 
 }).then(m => {
 
-  console.log(globalThis.FS);
-  console.log(m.main());
+  m.FS.writeFile("/monsterFS.fbs", `// Example IDL file for our monster's schema.
+  namespace MyGame.Sample;
+
+  enum Color:byte { Red = 0, Green, Blue = 2 }
+  
+  union Equipment { Weapon } // Optionally add more tables.
+  
+  struct Vec3 {
+    x:float;
+    y:float;
+    z:float;
+  }
+  
+  table Monster {
+    pos:Vec3;
+    mana:short = 150;
+    hp:short = 100;
+    name:string;
+    friendly:bool = false (deprecated);
+    inventory:[ubyte];
+    color:Color = Blue;
+    weapons:[Weapon];
+    equipped:Equipment;
+    path:[Vec3];
+  }
+  
+  table Weapon {
+    name:string;
+    damage:short;
+  }
+  
+  root_type Monster;
+  `.replace(/namespace .*/g, ""));
+
+  m.FS.mkdir("/my-game");
+  m.FS.mkdir("/my-game/sample");
+  m.main(["--ts", "/monsterFS.fbs"]);
+  console.log(m.FS.readdir("/"));
+  console.log(m.FS.readFile("/monsterFS.ts", { encoding: "utf8" }));
 
 })
