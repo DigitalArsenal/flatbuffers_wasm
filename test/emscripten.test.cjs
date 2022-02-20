@@ -3,8 +3,7 @@ let flatc = require("../dist/flatc.cjs");
 flatc.arguments = ["--js", "-o", "/test", "/test/monster.fbs"];
 
 flatc({
-    'noInitialRun': true,
-    "arguments": ["--cpp", "-o", "/", "/monster.fbs"]
+    'noInitialRun': true
 }).then(m => {
 
     m.FS.writeFile("/monsterFS.fbs", `// Example IDL file for our monster's schema.
@@ -40,7 +39,7 @@ flatc({
     
     root_type Monster;
     `.replace(/namespace .*/g,""));
-    
+
     m.FS.mkdir("/my-game");
     m.FS.mkdir("/my-game/sample");
     m.main(["--ts", "/monsterFS.fbs"]);
