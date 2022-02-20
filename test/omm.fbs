@@ -83,13 +83,13 @@ enum manCovRefFrame : byte {
   TNW
 }
 
-table omm {
-  // omm Header
-  CCSDS_omm_VERS:double;
+table OMM {
+  // OMM Header
+  CCSDS_OMM_VERS:double;
   CREATION_DATE:string;
   ORIGINATOR:string;
 
-  // omm Metadata
+  // OMM Metadata
   OBJECT_NAME:string;
   OBJECT_ID:string;
   CENTER_NAME:string;
@@ -99,7 +99,7 @@ table omm {
   MEAN_ELEMENT_THEORY:meanElementTheory = SGP4;
 
   // Mean Keplerian Elements in the Specified Reference Frame
-  CommENT:string;
+  COMMENT:string;
   EPOCH:string;
   SEMI_MAJOR_AXIS:double;
   MEAN_MOTION:double;
@@ -172,13 +172,13 @@ table mpe {
   USER_DEFINED_EPOCH_TIMESTAMP: double;
 }
 
-table ommcollection {
-  RECORDS:[omm];
+table OMMcollection {
+  RECORDS:[OMM];
 }
 
 table mpecollection {
   RECORDS:[mpe];
 }
 
-root_type omm;
-file_identifier "$omm";
+root_type OMM;
+file_identifier "$OMM";

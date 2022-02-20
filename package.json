@@ -38,11 +38,11 @@
     "serve-index": "^1.9.1"
   },
   "scripts": {
-    "test": "npm run test:main && npm run test:cjs",
+    "test": "node test/emscripten.test.cjs",
     "test:cjs": "node --experimental-wasi-unstable-preview1 ./test/test.cjs",
     "test:main": "node --experimental-wasi-unstable-preview1 ./test/test.js",
     "build:wasmer": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers && npm run build:transform && npm run build:browser",
-    "build": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers:emscripten",
+    "build": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers:emscripten && npm run test",
     "build:transform": "node ./scripts/transform.mjs --src ./src/flatc.wasm --out ./src/flatc.wasm",
     "build:flatbuffers": "./scripts/build.wasi.flatbuffers.sh",
     "build:flatbuffers:emscripten": "./scripts/build.emscripten.flatbuffers.sh",
@@ -50,7 +50,7 @@
     "dev": "nodemon -w src --exec 'npm run build:browser && npm run test'",
     "dev:server": "node test/server.js",
     "dev:test": "nodemon -w test --exec 'npm run test:main'",
-    "install": "git submodule init && git submodule update && git submodule foreach git pull origin master &&  git submodule foreach git clean -fxd && git submodule foreach git reset HEAD --hard && git submodule foreach git pull origin master && git submodule update && npm run build:emscripten",
+    "install": "git submodule init && git submodule update && git submodule foreach git pull origin master &&  git submodule foreach git clean -fxd && git submodule foreach git reset HEAD --hard && git submodule foreach git pull origin master && git submodule update && npm run build",
     "install:wasienv": "curl https://raw.githubusercontent.com/wasienv/wasienv/master/install.sh | sh"
   },
   "dependencies": {

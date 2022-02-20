@@ -1,48 +1,18 @@
 let flatc = require("../dist/flatc.cjs");
+let fs = require('fs');
 
 flatc.arguments = ["--js", "-o", "/test", "/test/monster.fbs"];
 
 flatc({
     'noInitialRun': true
 }).then(m => {
-
-    m.FS.writeFile("/monsterFS.fbs", `// Example IDL file for our monster's schema.
-    namespace MyGame.Sample;
-
-    enum Color:byte { Red = 0, Green, Blue = 2 }
-    
-    union Equipment { Weapon } // Optionally add more tables.
-    
-    struct Vec3 {
-      x:float;
-      y:float;
-      z:float;
-    }
-    
-    table Monster {
-      pos:Vec3;
-      mana:short = 150;
-      hp:short = 100;
-      name:string;
-      friendly:bool = false (deprecated);
-      inventory:[ubyte];
-      color:Color = Blue;
-      weapons:[Weapon];
-      equipped:Equipment;
-      path:[Vec3];
-    }
-    
-    table Weapon {
-      name:string;
-      damage:short;
-    }
-    
-    root_type Monster;
-    `.replace(/namespace .*/g,""));
-
-    m.FS.mkdir("/my-game");
-    m.FS.mkdir("/my-game/sample");
-    m.main(["--ts", "/monsterFS.fbs"]);
+    let e = { encoding: "utf8" };
+    m.FS.writeFile("/OMM.module.fbs", 
+    fs.readFileSync('./test/omm.fbs', e)
+    .replace(/namespace .*/g, "")
+    );
+    m.main(["--help"]);
+    m.main(["--jsonschema", "/OMM.module.fbs"]);
     console.log(m.FS.readdir("/"));
-    console.log(m.FS.readFile("/monsterFS.ts", { encoding: "utf8" }));
+    console.log(m.FS.readFile("/OMM.module.schema.json", e));
 })
