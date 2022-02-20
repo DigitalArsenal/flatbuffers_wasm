@@ -31,14 +31,14 @@ static bufferHasIdentifier(bb:flatbuffers.ByteBuffer):boolean {
   return bb.__has_identifier('$omm');
 }
 
-CCSDSOmmVERS():number {
+CCSDS_omm_VERS():number {
   const offset = this.bb!.__offset(this.bb_pos, 4);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CREATIONDATE():string|null
-CREATIONDATE(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-CREATIONDATE(optionalEncoding?:any):string|Uint8Array|null {
+CREATION_DATE():string|null
+CREATION_DATE(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+CREATION_DATE(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 6);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
@@ -50,45 +50,45 @@ ORIGINATOR(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-OBJECTNAME():string|null
-OBJECTNAME(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-OBJECTNAME(optionalEncoding?:any):string|Uint8Array|null {
+OBJECT_NAME():string|null
+OBJECT_NAME(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+OBJECT_NAME(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-OBJECTID():string|null
-OBJECTID(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-OBJECTID(optionalEncoding?:any):string|Uint8Array|null {
+OBJECT_ID():string|null
+OBJECT_ID(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+OBJECT_ID(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-CENTERNAME():string|null
-CENTERNAME(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-CENTERNAME(optionalEncoding?:any):string|Uint8Array|null {
+CENTER_NAME():string|null
+CENTER_NAME(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+CENTER_NAME(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-REFFRAME():referenceFrame {
+REF_FRAME():referenceFrame {
   const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.readInt8(this.bb_pos + offset) : referenceFrame.TEME;
 }
 
-REFFRAMEEPOCH():string|null
-REFFRAMEEPOCH(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-REFFRAMEEPOCH(optionalEncoding?:any):string|Uint8Array|null {
+REF_FRAME_EPOCH():string|null
+REF_FRAME_EPOCH(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+REF_FRAME_EPOCH(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 18);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-TIMESYSTEM():timeSystem {
+TIME_SYSTEM():timeSystem {
   const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.readInt8(this.bb_pos + offset) : timeSystem.UTC;
 }
 
-MEANELEMENTTHEORY():meanElementTheory {
+MEAN_ELEMENT_THEORY():meanElementTheory {
   const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.readInt8(this.bb_pos + offset) : meanElementTheory.SGP4;
 }
@@ -107,12 +107,12 @@ EPOCH(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-SEMIMAJORAXIS():number {
+SEMI_MAJOR_AXIS():number {
   const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-MEANMOTION():number {
+MEAN_MOTION():number {
   const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
@@ -127,17 +127,17 @@ INCLINATION():number {
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-RAOFASCNODE():number {
+RA_OF_ASC_NODE():number {
   const offset = this.bb!.__offset(this.bb_pos, 36);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-ARGOFPERICENTER():number {
+ARG_OF_PERICENTER():number {
   const offset = this.bb!.__offset(this.bb_pos, 38);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-MEANANOMALY():number {
+MEAN_ANOMALY():number {
   const offset = this.bb!.__offset(this.bb_pos, 40);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
@@ -152,49 +152,49 @@ MASS():number {
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-SOLARRADAREA():number {
+SOLAR_RAD_AREA():number {
   const offset = this.bb!.__offset(this.bb_pos, 46);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-SOLARRADCOEFF():number {
+SOLAR_RAD_COEFF():number {
   const offset = this.bb!.__offset(this.bb_pos, 48);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-DRAGAREA():number {
+DRAG_AREA():number {
   const offset = this.bb!.__offset(this.bb_pos, 50);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-DRAGCOEFF():number {
+DRAG_COEFF():number {
   const offset = this.bb!.__offset(this.bb_pos, 52);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-EPHEMERISTYPE():ephemerisType {
+EPHEMERIS_TYPE():ephemerisType {
   const offset = this.bb!.__offset(this.bb_pos, 54);
   return offset ? this.bb!.readInt8(this.bb_pos + offset) : ephemerisType.SGP4;
 }
 
-CLASSIFICATIONTYPE():string|null
-CLASSIFICATIONTYPE(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-CLASSIFICATIONTYPE(optionalEncoding?:any):string|Uint8Array|null {
+CLASSIFICATION_TYPE():string|null
+CLASSIFICATION_TYPE(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+CLASSIFICATION_TYPE(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 56);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-NORADCATID():number {
+NORAD_CAT_ID():number {
   const offset = this.bb!.__offset(this.bb_pos, 58);
   return offset ? this.bb!.readUint32(this.bb_pos + offset) : 0;
 }
 
-ELEMENTSETNO():number {
+ELEMENT_SET_NO():number {
   const offset = this.bb!.__offset(this.bb_pos, 60);
   return offset ? this.bb!.readUint32(this.bb_pos + offset) : 0;
 }
 
-REVATEPOCH():number {
+REV_AT_EPOCH():number {
   const offset = this.bb!.__offset(this.bb_pos, 62);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
@@ -204,151 +204,151 @@ BSTAR():number {
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-MEANMOTIONDOT():number {
+MEAN_MOTION_DOT():number {
   const offset = this.bb!.__offset(this.bb_pos, 66);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-MEANMOTIONDDOT():number {
+MEAN_MOTION_DDOT():number {
   const offset = this.bb!.__offset(this.bb_pos, 68);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-COVREFFRAME():manCovRefFrame {
+COV_REF_FRAME():manCovRefFrame {
   const offset = this.bb!.__offset(this.bb_pos, 70);
   return offset ? this.bb!.readInt8(this.bb_pos + offset) : manCovRefFrame.RSW;
 }
 
-CXX():number {
+CX_X():number {
   const offset = this.bb!.__offset(this.bb_pos, 72);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CYX():number {
+CY_X():number {
   const offset = this.bb!.__offset(this.bb_pos, 74);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CYY():number {
+CY_Y():number {
   const offset = this.bb!.__offset(this.bb_pos, 76);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CZX():number {
+CZ_X():number {
   const offset = this.bb!.__offset(this.bb_pos, 78);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CZY():number {
+CZ_Y():number {
   const offset = this.bb!.__offset(this.bb_pos, 80);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CZZ():number {
+CZ_Z():number {
   const offset = this.bb!.__offset(this.bb_pos, 82);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CXDOTX():number {
+CX_DOT_X():number {
   const offset = this.bb!.__offset(this.bb_pos, 84);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CXDOTY():number {
+CX_DOT_Y():number {
   const offset = this.bb!.__offset(this.bb_pos, 86);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CXDOTZ():number {
+CX_DOT_Z():number {
   const offset = this.bb!.__offset(this.bb_pos, 88);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CXDOTXDOT():number {
+CX_DOT_X_DOT():number {
   const offset = this.bb!.__offset(this.bb_pos, 90);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CYDOTX():number {
+CY_DOT_X():number {
   const offset = this.bb!.__offset(this.bb_pos, 92);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CYDOTY():number {
+CY_DOT_Y():number {
   const offset = this.bb!.__offset(this.bb_pos, 94);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CYDOTZ():number {
+CY_DOT_Z():number {
   const offset = this.bb!.__offset(this.bb_pos, 96);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CYDOTXDOT():number {
+CY_DOT_X_DOT():number {
   const offset = this.bb!.__offset(this.bb_pos, 98);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CYDOTYDOT():number {
+CY_DOT_Y_DOT():number {
   const offset = this.bb!.__offset(this.bb_pos, 100);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CZDOTX():number {
+CZ_DOT_X():number {
   const offset = this.bb!.__offset(this.bb_pos, 102);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CZDOTY():number {
+CZ_DOT_Y():number {
   const offset = this.bb!.__offset(this.bb_pos, 104);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CZDOTZ():number {
+CZ_DOT_Z():number {
   const offset = this.bb!.__offset(this.bb_pos, 106);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CZDOTXDOT():number {
+CZ_DOT_X_DOT():number {
   const offset = this.bb!.__offset(this.bb_pos, 108);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CZDOTYDOT():number {
+CZ_DOT_Y_DOT():number {
   const offset = this.bb!.__offset(this.bb_pos, 110);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-CZDOTZDOT():number {
+CZ_DOT_Z_DOT():number {
   const offset = this.bb!.__offset(this.bb_pos, 112);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-USERDEFINEDBIP0044TYPE():number {
+USER_DEFINED_BIP_0044_TYPE():number {
   const offset = this.bb!.__offset(this.bb_pos, 114);
   return offset ? this.bb!.readUint32(this.bb_pos + offset) : 0;
 }
 
-USERDEFINEDOBJECTDESIGNATOR():string|null
-USERDEFINEDOBJECTDESIGNATOR(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-USERDEFINEDOBJECTDESIGNATOR(optionalEncoding?:any):string|Uint8Array|null {
+USER_DEFINED_OBJECT_DESIGNATOR():string|null
+USER_DEFINED_OBJECT_DESIGNATOR(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+USER_DEFINED_OBJECT_DESIGNATOR(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 116);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-USERDEFINEDEARTHMODEL():string|null
-USERDEFINEDEARTHMODEL(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
-USERDEFINEDEARTHMODEL(optionalEncoding?:any):string|Uint8Array|null {
+USER_DEFINED_EARTH_MODEL():string|null
+USER_DEFINED_EARTH_MODEL(optionalEncoding:flatbuffers.Encoding):string|Uint8Array|null
+USER_DEFINED_EARTH_MODEL(optionalEncoding?:any):string|Uint8Array|null {
   const offset = this.bb!.__offset(this.bb_pos, 118);
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-USERDEFINEDEPOCHTIMESTAMP():number {
+USER_DEFINED_EPOCH_TIMESTAMP():number {
   const offset = this.bb!.__offset(this.bb_pos, 120);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-USERDEFINEDMICROSECONDS():number {
+USER_DEFINED_MICROSECONDS():number {
   const offset = this.bb!.__offset(this.bb_pos, 122);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
@@ -357,44 +357,44 @@ static startomm(builder:flatbuffers.Builder) {
   builder.startObject(60);
 }
 
-static addCCSDSOmmVERS(builder:flatbuffers.Builder, CCSDSOmmVERS:number) {
-  builder.addFieldFloat64(0, CCSDSOmmVERS, 0.0);
+static addCCSDS_omm_VERS(builder:flatbuffers.Builder, CCSDS_omm_VERS:number) {
+  builder.addFieldFloat64(0, CCSDS_omm_VERS, 0.0);
 }
 
-static addCREATIONDATE(builder:flatbuffers.Builder, CREATIONDATEOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(1, CREATIONDATEOffset, 0);
+static addCREATION_DATE(builder:flatbuffers.Builder, CREATION_DATEOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(1, CREATION_DATEOffset, 0);
 }
 
 static addORIGINATOR(builder:flatbuffers.Builder, ORIGINATOROffset:flatbuffers.Offset) {
   builder.addFieldOffset(2, ORIGINATOROffset, 0);
 }
 
-static addOBJECTNAME(builder:flatbuffers.Builder, OBJECTNAMEOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, OBJECTNAMEOffset, 0);
+static addOBJECT_NAME(builder:flatbuffers.Builder, OBJECT_NAMEOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(3, OBJECT_NAMEOffset, 0);
 }
 
-static addOBJECTID(builder:flatbuffers.Builder, OBJECTIDOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(4, OBJECTIDOffset, 0);
+static addOBJECT_ID(builder:flatbuffers.Builder, OBJECT_IDOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(4, OBJECT_IDOffset, 0);
 }
 
-static addCENTERNAME(builder:flatbuffers.Builder, CENTERNAMEOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(5, CENTERNAMEOffset, 0);
+static addCENTER_NAME(builder:flatbuffers.Builder, CENTER_NAMEOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(5, CENTER_NAMEOffset, 0);
 }
 
-static addREFFRAME(builder:flatbuffers.Builder, REFFRAME:referenceFrame) {
-  builder.addFieldInt8(6, REFFRAME, referenceFrame.TEME);
+static addREF_FRAME(builder:flatbuffers.Builder, REF_FRAME:referenceFrame) {
+  builder.addFieldInt8(6, REF_FRAME, referenceFrame.TEME);
 }
 
-static addREFFRAMEEPOCH(builder:flatbuffers.Builder, REFFRAMEEPOCHOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(7, REFFRAMEEPOCHOffset, 0);
+static addREF_FRAME_EPOCH(builder:flatbuffers.Builder, REF_FRAME_EPOCHOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(7, REF_FRAME_EPOCHOffset, 0);
 }
 
-static addTIMESYSTEM(builder:flatbuffers.Builder, TIMESYSTEM:timeSystem) {
-  builder.addFieldInt8(8, TIMESYSTEM, timeSystem.UTC);
+static addTIME_SYSTEM(builder:flatbuffers.Builder, TIME_SYSTEM:timeSystem) {
+  builder.addFieldInt8(8, TIME_SYSTEM, timeSystem.UTC);
 }
 
-static addMEANELEMENTTHEORY(builder:flatbuffers.Builder, MEANELEMENTTHEORY:meanElementTheory) {
-  builder.addFieldInt8(9, MEANELEMENTTHEORY, meanElementTheory.SGP4);
+static addMEAN_ELEMENT_THEORY(builder:flatbuffers.Builder, MEAN_ELEMENT_THEORY:meanElementTheory) {
+  builder.addFieldInt8(9, MEAN_ELEMENT_THEORY, meanElementTheory.SGP4);
 }
 
 static addCommENT(builder:flatbuffers.Builder, CommENTOffset:flatbuffers.Offset) {
@@ -405,12 +405,12 @@ static addEPOCH(builder:flatbuffers.Builder, EPOCHOffset:flatbuffers.Offset) {
   builder.addFieldOffset(11, EPOCHOffset, 0);
 }
 
-static addSEMIMAJORAXIS(builder:flatbuffers.Builder, SEMIMAJORAXIS:number) {
-  builder.addFieldFloat64(12, SEMIMAJORAXIS, 0.0);
+static addSEMI_MAJOR_AXIS(builder:flatbuffers.Builder, SEMI_MAJOR_AXIS:number) {
+  builder.addFieldFloat64(12, SEMI_MAJOR_AXIS, 0.0);
 }
 
-static addMEANMOTION(builder:flatbuffers.Builder, MEANMOTION:number) {
-  builder.addFieldFloat64(13, MEANMOTION, 0.0);
+static addMEAN_MOTION(builder:flatbuffers.Builder, MEAN_MOTION:number) {
+  builder.addFieldFloat64(13, MEAN_MOTION, 0.0);
 }
 
 static addECCENTRICITY(builder:flatbuffers.Builder, ECCENTRICITY:number) {
@@ -421,16 +421,16 @@ static addINCLINATION(builder:flatbuffers.Builder, INCLINATION:number) {
   builder.addFieldFloat64(15, INCLINATION, 0.0);
 }
 
-static addRAOFASCNODE(builder:flatbuffers.Builder, RAOFASCNODE:number) {
-  builder.addFieldFloat64(16, RAOFASCNODE, 0.0);
+static addRA_OF_ASC_NODE(builder:flatbuffers.Builder, RA_OF_ASC_NODE:number) {
+  builder.addFieldFloat64(16, RA_OF_ASC_NODE, 0.0);
 }
 
-static addARGOFPERICENTER(builder:flatbuffers.Builder, ARGOFPERICENTER:number) {
-  builder.addFieldFloat64(17, ARGOFPERICENTER, 0.0);
+static addARG_OF_PERICENTER(builder:flatbuffers.Builder, ARG_OF_PERICENTER:number) {
+  builder.addFieldFloat64(17, ARG_OF_PERICENTER, 0.0);
 }
 
-static addMEANANOMALY(builder:flatbuffers.Builder, MEANANOMALY:number) {
-  builder.addFieldFloat64(18, MEANANOMALY, 0.0);
+static addMEAN_ANOMALY(builder:flatbuffers.Builder, MEAN_ANOMALY:number) {
+  builder.addFieldFloat64(18, MEAN_ANOMALY, 0.0);
 }
 
 static addGM(builder:flatbuffers.Builder, GM:number) {
@@ -441,160 +441,160 @@ static addMASS(builder:flatbuffers.Builder, MASS:number) {
   builder.addFieldFloat64(20, MASS, 0.0);
 }
 
-static addSOLARRADAREA(builder:flatbuffers.Builder, SOLARRADAREA:number) {
-  builder.addFieldFloat64(21, SOLARRADAREA, 0.0);
+static addSOLAR_RAD_AREA(builder:flatbuffers.Builder, SOLAR_RAD_AREA:number) {
+  builder.addFieldFloat64(21, SOLAR_RAD_AREA, 0.0);
 }
 
-static addSOLARRADCOEFF(builder:flatbuffers.Builder, SOLARRADCOEFF:number) {
-  builder.addFieldFloat64(22, SOLARRADCOEFF, 0.0);
+static addSOLAR_RAD_COEFF(builder:flatbuffers.Builder, SOLAR_RAD_COEFF:number) {
+  builder.addFieldFloat64(22, SOLAR_RAD_COEFF, 0.0);
 }
 
-static addDRAGAREA(builder:flatbuffers.Builder, DRAGAREA:number) {
-  builder.addFieldFloat64(23, DRAGAREA, 0.0);
+static addDRAG_AREA(builder:flatbuffers.Builder, DRAG_AREA:number) {
+  builder.addFieldFloat64(23, DRAG_AREA, 0.0);
 }
 
-static addDRAGCOEFF(builder:flatbuffers.Builder, DRAGCOEFF:number) {
-  builder.addFieldFloat64(24, DRAGCOEFF, 0.0);
+static addDRAG_COEFF(builder:flatbuffers.Builder, DRAG_COEFF:number) {
+  builder.addFieldFloat64(24, DRAG_COEFF, 0.0);
 }
 
-static addEPHEMERISTYPE(builder:flatbuffers.Builder, EPHEMERISTYPE:ephemerisType) {
-  builder.addFieldInt8(25, EPHEMERISTYPE, ephemerisType.SGP4);
+static addEPHEMERIS_TYPE(builder:flatbuffers.Builder, EPHEMERIS_TYPE:ephemerisType) {
+  builder.addFieldInt8(25, EPHEMERIS_TYPE, ephemerisType.SGP4);
 }
 
-static addCLASSIFICATIONTYPE(builder:flatbuffers.Builder, CLASSIFICATIONTYPEOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(26, CLASSIFICATIONTYPEOffset, 0);
+static addCLASSIFICATION_TYPE(builder:flatbuffers.Builder, CLASSIFICATION_TYPEOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(26, CLASSIFICATION_TYPEOffset, 0);
 }
 
-static addNORADCATID(builder:flatbuffers.Builder, NORADCATID:number) {
-  builder.addFieldInt32(27, NORADCATID, 0);
+static addNORAD_CAT_ID(builder:flatbuffers.Builder, NORAD_CAT_ID:number) {
+  builder.addFieldInt32(27, NORAD_CAT_ID, 0);
 }
 
-static addELEMENTSETNO(builder:flatbuffers.Builder, ELEMENTSETNO:number) {
-  builder.addFieldInt32(28, ELEMENTSETNO, 0);
+static addELEMENT_SET_NO(builder:flatbuffers.Builder, ELEMENT_SET_NO:number) {
+  builder.addFieldInt32(28, ELEMENT_SET_NO, 0);
 }
 
-static addREVATEPOCH(builder:flatbuffers.Builder, REVATEPOCH:number) {
-  builder.addFieldFloat64(29, REVATEPOCH, 0.0);
+static addREV_AT_EPOCH(builder:flatbuffers.Builder, REV_AT_EPOCH:number) {
+  builder.addFieldFloat64(29, REV_AT_EPOCH, 0.0);
 }
 
 static addBSTAR(builder:flatbuffers.Builder, BSTAR:number) {
   builder.addFieldFloat64(30, BSTAR, 0.0);
 }
 
-static addMEANMOTIONDOT(builder:flatbuffers.Builder, MEANMOTIONDOT:number) {
-  builder.addFieldFloat64(31, MEANMOTIONDOT, 0.0);
+static addMEAN_MOTION_DOT(builder:flatbuffers.Builder, MEAN_MOTION_DOT:number) {
+  builder.addFieldFloat64(31, MEAN_MOTION_DOT, 0.0);
 }
 
-static addMEANMOTIONDDOT(builder:flatbuffers.Builder, MEANMOTIONDDOT:number) {
-  builder.addFieldFloat64(32, MEANMOTIONDDOT, 0.0);
+static addMEAN_MOTION_DDOT(builder:flatbuffers.Builder, MEAN_MOTION_DDOT:number) {
+  builder.addFieldFloat64(32, MEAN_MOTION_DDOT, 0.0);
 }
 
-static addCOVREFFRAME(builder:flatbuffers.Builder, COVREFFRAME:manCovRefFrame) {
-  builder.addFieldInt8(33, COVREFFRAME, manCovRefFrame.RSW);
+static addCOV_REF_FRAME(builder:flatbuffers.Builder, COV_REF_FRAME:manCovRefFrame) {
+  builder.addFieldInt8(33, COV_REF_FRAME, manCovRefFrame.RSW);
 }
 
-static addCXX(builder:flatbuffers.Builder, CXX:number) {
-  builder.addFieldFloat64(34, CXX, 0.0);
+static addCX_X(builder:flatbuffers.Builder, CX_X:number) {
+  builder.addFieldFloat64(34, CX_X, 0.0);
 }
 
-static addCYX(builder:flatbuffers.Builder, CYX:number) {
-  builder.addFieldFloat64(35, CYX, 0.0);
+static addCY_X(builder:flatbuffers.Builder, CY_X:number) {
+  builder.addFieldFloat64(35, CY_X, 0.0);
 }
 
-static addCYY(builder:flatbuffers.Builder, CYY:number) {
-  builder.addFieldFloat64(36, CYY, 0.0);
+static addCY_Y(builder:flatbuffers.Builder, CY_Y:number) {
+  builder.addFieldFloat64(36, CY_Y, 0.0);
 }
 
-static addCZX(builder:flatbuffers.Builder, CZX:number) {
-  builder.addFieldFloat64(37, CZX, 0.0);
+static addCZ_X(builder:flatbuffers.Builder, CZ_X:number) {
+  builder.addFieldFloat64(37, CZ_X, 0.0);
 }
 
-static addCZY(builder:flatbuffers.Builder, CZY:number) {
-  builder.addFieldFloat64(38, CZY, 0.0);
+static addCZ_Y(builder:flatbuffers.Builder, CZ_Y:number) {
+  builder.addFieldFloat64(38, CZ_Y, 0.0);
 }
 
-static addCZZ(builder:flatbuffers.Builder, CZZ:number) {
-  builder.addFieldFloat64(39, CZZ, 0.0);
+static addCZ_Z(builder:flatbuffers.Builder, CZ_Z:number) {
+  builder.addFieldFloat64(39, CZ_Z, 0.0);
 }
 
-static addCXDOTX(builder:flatbuffers.Builder, CXDOTX:number) {
-  builder.addFieldFloat64(40, CXDOTX, 0.0);
+static addCX_DOT_X(builder:flatbuffers.Builder, CX_DOT_X:number) {
+  builder.addFieldFloat64(40, CX_DOT_X, 0.0);
 }
 
-static addCXDOTY(builder:flatbuffers.Builder, CXDOTY:number) {
-  builder.addFieldFloat64(41, CXDOTY, 0.0);
+static addCX_DOT_Y(builder:flatbuffers.Builder, CX_DOT_Y:number) {
+  builder.addFieldFloat64(41, CX_DOT_Y, 0.0);
 }
 
-static addCXDOTZ(builder:flatbuffers.Builder, CXDOTZ:number) {
-  builder.addFieldFloat64(42, CXDOTZ, 0.0);
+static addCX_DOT_Z(builder:flatbuffers.Builder, CX_DOT_Z:number) {
+  builder.addFieldFloat64(42, CX_DOT_Z, 0.0);
 }
 
-static addCXDOTXDOT(builder:flatbuffers.Builder, CXDOTXDOT:number) {
-  builder.addFieldFloat64(43, CXDOTXDOT, 0.0);
+static addCX_DOT_X_DOT(builder:flatbuffers.Builder, CX_DOT_X_DOT:number) {
+  builder.addFieldFloat64(43, CX_DOT_X_DOT, 0.0);
 }
 
-static addCYDOTX(builder:flatbuffers.Builder, CYDOTX:number) {
-  builder.addFieldFloat64(44, CYDOTX, 0.0);
+static addCY_DOT_X(builder:flatbuffers.Builder, CY_DOT_X:number) {
+  builder.addFieldFloat64(44, CY_DOT_X, 0.0);
 }
 
-static addCYDOTY(builder:flatbuffers.Builder, CYDOTY:number) {
-  builder.addFieldFloat64(45, CYDOTY, 0.0);
+static addCY_DOT_Y(builder:flatbuffers.Builder, CY_DOT_Y:number) {
+  builder.addFieldFloat64(45, CY_DOT_Y, 0.0);
 }
 
-static addCYDOTZ(builder:flatbuffers.Builder, CYDOTZ:number) {
-  builder.addFieldFloat64(46, CYDOTZ, 0.0);
+static addCY_DOT_Z(builder:flatbuffers.Builder, CY_DOT_Z:number) {
+  builder.addFieldFloat64(46, CY_DOT_Z, 0.0);
 }
 
-static addCYDOTXDOT(builder:flatbuffers.Builder, CYDOTXDOT:number) {
-  builder.addFieldFloat64(47, CYDOTXDOT, 0.0);
+static addCY_DOT_X_DOT(builder:flatbuffers.Builder, CY_DOT_X_DOT:number) {
+  builder.addFieldFloat64(47, CY_DOT_X_DOT, 0.0);
 }
 
-static addCYDOTYDOT(builder:flatbuffers.Builder, CYDOTYDOT:number) {
-  builder.addFieldFloat64(48, CYDOTYDOT, 0.0);
+static addCY_DOT_Y_DOT(builder:flatbuffers.Builder, CY_DOT_Y_DOT:number) {
+  builder.addFieldFloat64(48, CY_DOT_Y_DOT, 0.0);
 }
 
-static addCZDOTX(builder:flatbuffers.Builder, CZDOTX:number) {
-  builder.addFieldFloat64(49, CZDOTX, 0.0);
+static addCZ_DOT_X(builder:flatbuffers.Builder, CZ_DOT_X:number) {
+  builder.addFieldFloat64(49, CZ_DOT_X, 0.0);
 }
 
-static addCZDOTY(builder:flatbuffers.Builder, CZDOTY:number) {
-  builder.addFieldFloat64(50, CZDOTY, 0.0);
+static addCZ_DOT_Y(builder:flatbuffers.Builder, CZ_DOT_Y:number) {
+  builder.addFieldFloat64(50, CZ_DOT_Y, 0.0);
 }
 
-static addCZDOTZ(builder:flatbuffers.Builder, CZDOTZ:number) {
-  builder.addFieldFloat64(51, CZDOTZ, 0.0);
+static addCZ_DOT_Z(builder:flatbuffers.Builder, CZ_DOT_Z:number) {
+  builder.addFieldFloat64(51, CZ_DOT_Z, 0.0);
 }
 
-static addCZDOTXDOT(builder:flatbuffers.Builder, CZDOTXDOT:number) {
-  builder.addFieldFloat64(52, CZDOTXDOT, 0.0);
+static addCZ_DOT_X_DOT(builder:flatbuffers.Builder, CZ_DOT_X_DOT:number) {
+  builder.addFieldFloat64(52, CZ_DOT_X_DOT, 0.0);
 }
 
-static addCZDOTYDOT(builder:flatbuffers.Builder, CZDOTYDOT:number) {
-  builder.addFieldFloat64(53, CZDOTYDOT, 0.0);
+static addCZ_DOT_Y_DOT(builder:flatbuffers.Builder, CZ_DOT_Y_DOT:number) {
+  builder.addFieldFloat64(53, CZ_DOT_Y_DOT, 0.0);
 }
 
-static addCZDOTZDOT(builder:flatbuffers.Builder, CZDOTZDOT:number) {
-  builder.addFieldFloat64(54, CZDOTZDOT, 0.0);
+static addCZ_DOT_Z_DOT(builder:flatbuffers.Builder, CZ_DOT_Z_DOT:number) {
+  builder.addFieldFloat64(54, CZ_DOT_Z_DOT, 0.0);
 }
 
-static addUSERDEFINEDBIP0044TYPE(builder:flatbuffers.Builder, USERDEFINEDBIP0044TYPE:number) {
-  builder.addFieldInt32(55, USERDEFINEDBIP0044TYPE, 0);
+static addUSER_DEFINED_BIP_0044_TYPE(builder:flatbuffers.Builder, USER_DEFINED_BIP_0044_TYPE:number) {
+  builder.addFieldInt32(55, USER_DEFINED_BIP_0044_TYPE, 0);
 }
 
-static addUSERDEFINEDOBJECTDESIGNATOR(builder:flatbuffers.Builder, USERDEFINEDOBJECTDESIGNATOROffset:flatbuffers.Offset) {
-  builder.addFieldOffset(56, USERDEFINEDOBJECTDESIGNATOROffset, 0);
+static addUSER_DEFINED_OBJECT_DESIGNATOR(builder:flatbuffers.Builder, USER_DEFINED_OBJECT_DESIGNATOROffset:flatbuffers.Offset) {
+  builder.addFieldOffset(56, USER_DEFINED_OBJECT_DESIGNATOROffset, 0);
 }
 
-static addUSERDEFINEDEARTHMODEL(builder:flatbuffers.Builder, USERDEFINEDEARTHMODELOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(57, USERDEFINEDEARTHMODELOffset, 0);
+static addUSER_DEFINED_EARTH_MODEL(builder:flatbuffers.Builder, USER_DEFINED_EARTH_MODELOffset:flatbuffers.Offset) {
+  builder.addFieldOffset(57, USER_DEFINED_EARTH_MODELOffset, 0);
 }
 
-static addUSERDEFINEDEPOCHTIMESTAMP(builder:flatbuffers.Builder, USERDEFINEDEPOCHTIMESTAMP:number) {
-  builder.addFieldFloat64(58, USERDEFINEDEPOCHTIMESTAMP, 0.0);
+static addUSER_DEFINED_EPOCH_TIMESTAMP(builder:flatbuffers.Builder, USER_DEFINED_EPOCH_TIMESTAMP:number) {
+  builder.addFieldFloat64(58, USER_DEFINED_EPOCH_TIMESTAMP, 0.0);
 }
 
-static addUSERDEFINEDMICROSECONDS(builder:flatbuffers.Builder, USERDEFINEDMICROSECONDS:number) {
-  builder.addFieldFloat64(59, USERDEFINEDMICROSECONDS, 0.0);
+static addUSER_DEFINED_MICROSECONDS(builder:flatbuffers.Builder, USER_DEFINED_MICROSECONDS:number) {
+  builder.addFieldFloat64(59, USER_DEFINED_MICROSECONDS, 0.0);
 }
 
 static endomm(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -610,340 +610,340 @@ static finishSizePrefixedommBuffer(builder:flatbuffers.Builder, offset:flatbuffe
   builder.finish(offset, '$omm', true);
 }
 
-static createomm(builder:flatbuffers.Builder, CCSDSOmmVERS:number, CREATIONDATEOffset:flatbuffers.Offset, ORIGINATOROffset:flatbuffers.Offset, OBJECTNAMEOffset:flatbuffers.Offset, OBJECTIDOffset:flatbuffers.Offset, CENTERNAMEOffset:flatbuffers.Offset, REFFRAME:referenceFrame, REFFRAMEEPOCHOffset:flatbuffers.Offset, TIMESYSTEM:timeSystem, MEANELEMENTTHEORY:meanElementTheory, CommENTOffset:flatbuffers.Offset, EPOCHOffset:flatbuffers.Offset, SEMIMAJORAXIS:number, MEANMOTION:number, ECCENTRICITY:number, INCLINATION:number, RAOFASCNODE:number, ARGOFPERICENTER:number, MEANANOMALY:number, GM:number, MASS:number, SOLARRADAREA:number, SOLARRADCOEFF:number, DRAGAREA:number, DRAGCOEFF:number, EPHEMERISTYPE:ephemerisType, CLASSIFICATIONTYPEOffset:flatbuffers.Offset, NORADCATID:number, ELEMENTSETNO:number, REVATEPOCH:number, BSTAR:number, MEANMOTIONDOT:number, MEANMOTIONDDOT:number, COVREFFRAME:manCovRefFrame, CXX:number, CYX:number, CYY:number, CZX:number, CZY:number, CZZ:number, CXDOTX:number, CXDOTY:number, CXDOTZ:number, CXDOTXDOT:number, CYDOTX:number, CYDOTY:number, CYDOTZ:number, CYDOTXDOT:number, CYDOTYDOT:number, CZDOTX:number, CZDOTY:number, CZDOTZ:number, CZDOTXDOT:number, CZDOTYDOT:number, CZDOTZDOT:number, USERDEFINEDBIP0044TYPE:number, USERDEFINEDOBJECTDESIGNATOROffset:flatbuffers.Offset, USERDEFINEDEARTHMODELOffset:flatbuffers.Offset, USERDEFINEDEPOCHTIMESTAMP:number, USERDEFINEDMICROSECONDS:number):flatbuffers.Offset {
+static createomm(builder:flatbuffers.Builder, CCSDS_omm_VERS:number, CREATION_DATEOffset:flatbuffers.Offset, ORIGINATOROffset:flatbuffers.Offset, OBJECT_NAMEOffset:flatbuffers.Offset, OBJECT_IDOffset:flatbuffers.Offset, CENTER_NAMEOffset:flatbuffers.Offset, REF_FRAME:referenceFrame, REF_FRAME_EPOCHOffset:flatbuffers.Offset, TIME_SYSTEM:timeSystem, MEAN_ELEMENT_THEORY:meanElementTheory, CommENTOffset:flatbuffers.Offset, EPOCHOffset:flatbuffers.Offset, SEMI_MAJOR_AXIS:number, MEAN_MOTION:number, ECCENTRICITY:number, INCLINATION:number, RA_OF_ASC_NODE:number, ARG_OF_PERICENTER:number, MEAN_ANOMALY:number, GM:number, MASS:number, SOLAR_RAD_AREA:number, SOLAR_RAD_COEFF:number, DRAG_AREA:number, DRAG_COEFF:number, EPHEMERIS_TYPE:ephemerisType, CLASSIFICATION_TYPEOffset:flatbuffers.Offset, NORAD_CAT_ID:number, ELEMENT_SET_NO:number, REV_AT_EPOCH:number, BSTAR:number, MEAN_MOTION_DOT:number, MEAN_MOTION_DDOT:number, COV_REF_FRAME:manCovRefFrame, CX_X:number, CY_X:number, CY_Y:number, CZ_X:number, CZ_Y:number, CZ_Z:number, CX_DOT_X:number, CX_DOT_Y:number, CX_DOT_Z:number, CX_DOT_X_DOT:number, CY_DOT_X:number, CY_DOT_Y:number, CY_DOT_Z:number, CY_DOT_X_DOT:number, CY_DOT_Y_DOT:number, CZ_DOT_X:number, CZ_DOT_Y:number, CZ_DOT_Z:number, CZ_DOT_X_DOT:number, CZ_DOT_Y_DOT:number, CZ_DOT_Z_DOT:number, USER_DEFINED_BIP_0044_TYPE:number, USER_DEFINED_OBJECT_DESIGNATOROffset:flatbuffers.Offset, USER_DEFINED_EARTH_MODELOffset:flatbuffers.Offset, USER_DEFINED_EPOCH_TIMESTAMP:number, USER_DEFINED_MICROSECONDS:number):flatbuffers.Offset {
   omm.startomm(builder);
-  omm.addCCSDSOmmVERS(builder, CCSDSOmmVERS);
-  omm.addCREATIONDATE(builder, CREATIONDATEOffset);
+  omm.addCCSDS_omm_VERS(builder, CCSDS_omm_VERS);
+  omm.addCREATION_DATE(builder, CREATION_DATEOffset);
   omm.addORIGINATOR(builder, ORIGINATOROffset);
-  omm.addOBJECTNAME(builder, OBJECTNAMEOffset);
-  omm.addOBJECTID(builder, OBJECTIDOffset);
-  omm.addCENTERNAME(builder, CENTERNAMEOffset);
-  omm.addREFFRAME(builder, REFFRAME);
-  omm.addREFFRAMEEPOCH(builder, REFFRAMEEPOCHOffset);
-  omm.addTIMESYSTEM(builder, TIMESYSTEM);
-  omm.addMEANELEMENTTHEORY(builder, MEANELEMENTTHEORY);
+  omm.addOBJECT_NAME(builder, OBJECT_NAMEOffset);
+  omm.addOBJECT_ID(builder, OBJECT_IDOffset);
+  omm.addCENTER_NAME(builder, CENTER_NAMEOffset);
+  omm.addREF_FRAME(builder, REF_FRAME);
+  omm.addREF_FRAME_EPOCH(builder, REF_FRAME_EPOCHOffset);
+  omm.addTIME_SYSTEM(builder, TIME_SYSTEM);
+  omm.addMEAN_ELEMENT_THEORY(builder, MEAN_ELEMENT_THEORY);
   omm.addCommENT(builder, CommENTOffset);
   omm.addEPOCH(builder, EPOCHOffset);
-  omm.addSEMIMAJORAXIS(builder, SEMIMAJORAXIS);
-  omm.addMEANMOTION(builder, MEANMOTION);
+  omm.addSEMI_MAJOR_AXIS(builder, SEMI_MAJOR_AXIS);
+  omm.addMEAN_MOTION(builder, MEAN_MOTION);
   omm.addECCENTRICITY(builder, ECCENTRICITY);
   omm.addINCLINATION(builder, INCLINATION);
-  omm.addRAOFASCNODE(builder, RAOFASCNODE);
-  omm.addARGOFPERICENTER(builder, ARGOFPERICENTER);
-  omm.addMEANANOMALY(builder, MEANANOMALY);
+  omm.addRA_OF_ASC_NODE(builder, RA_OF_ASC_NODE);
+  omm.addARG_OF_PERICENTER(builder, ARG_OF_PERICENTER);
+  omm.addMEAN_ANOMALY(builder, MEAN_ANOMALY);
   omm.addGM(builder, GM);
   omm.addMASS(builder, MASS);
-  omm.addSOLARRADAREA(builder, SOLARRADAREA);
-  omm.addSOLARRADCOEFF(builder, SOLARRADCOEFF);
-  omm.addDRAGAREA(builder, DRAGAREA);
-  omm.addDRAGCOEFF(builder, DRAGCOEFF);
-  omm.addEPHEMERISTYPE(builder, EPHEMERISTYPE);
-  omm.addCLASSIFICATIONTYPE(builder, CLASSIFICATIONTYPEOffset);
-  omm.addNORADCATID(builder, NORADCATID);
-  omm.addELEMENTSETNO(builder, ELEMENTSETNO);
-  omm.addREVATEPOCH(builder, REVATEPOCH);
+  omm.addSOLAR_RAD_AREA(builder, SOLAR_RAD_AREA);
+  omm.addSOLAR_RAD_COEFF(builder, SOLAR_RAD_COEFF);
+  omm.addDRAG_AREA(builder, DRAG_AREA);
+  omm.addDRAG_COEFF(builder, DRAG_COEFF);
+  omm.addEPHEMERIS_TYPE(builder, EPHEMERIS_TYPE);
+  omm.addCLASSIFICATION_TYPE(builder, CLASSIFICATION_TYPEOffset);
+  omm.addNORAD_CAT_ID(builder, NORAD_CAT_ID);
+  omm.addELEMENT_SET_NO(builder, ELEMENT_SET_NO);
+  omm.addREV_AT_EPOCH(builder, REV_AT_EPOCH);
   omm.addBSTAR(builder, BSTAR);
-  omm.addMEANMOTIONDOT(builder, MEANMOTIONDOT);
-  omm.addMEANMOTIONDDOT(builder, MEANMOTIONDDOT);
-  omm.addCOVREFFRAME(builder, COVREFFRAME);
-  omm.addCXX(builder, CXX);
-  omm.addCYX(builder, CYX);
-  omm.addCYY(builder, CYY);
-  omm.addCZX(builder, CZX);
-  omm.addCZY(builder, CZY);
-  omm.addCZZ(builder, CZZ);
-  omm.addCXDOTX(builder, CXDOTX);
-  omm.addCXDOTY(builder, CXDOTY);
-  omm.addCXDOTZ(builder, CXDOTZ);
-  omm.addCXDOTXDOT(builder, CXDOTXDOT);
-  omm.addCYDOTX(builder, CYDOTX);
-  omm.addCYDOTY(builder, CYDOTY);
-  omm.addCYDOTZ(builder, CYDOTZ);
-  omm.addCYDOTXDOT(builder, CYDOTXDOT);
-  omm.addCYDOTYDOT(builder, CYDOTYDOT);
-  omm.addCZDOTX(builder, CZDOTX);
-  omm.addCZDOTY(builder, CZDOTY);
-  omm.addCZDOTZ(builder, CZDOTZ);
-  omm.addCZDOTXDOT(builder, CZDOTXDOT);
-  omm.addCZDOTYDOT(builder, CZDOTYDOT);
-  omm.addCZDOTZDOT(builder, CZDOTZDOT);
-  omm.addUSERDEFINEDBIP0044TYPE(builder, USERDEFINEDBIP0044TYPE);
-  omm.addUSERDEFINEDOBJECTDESIGNATOR(builder, USERDEFINEDOBJECTDESIGNATOROffset);
-  omm.addUSERDEFINEDEARTHMODEL(builder, USERDEFINEDEARTHMODELOffset);
-  omm.addUSERDEFINEDEPOCHTIMESTAMP(builder, USERDEFINEDEPOCHTIMESTAMP);
-  omm.addUSERDEFINEDMICROSECONDS(builder, USERDEFINEDMICROSECONDS);
+  omm.addMEAN_MOTION_DOT(builder, MEAN_MOTION_DOT);
+  omm.addMEAN_MOTION_DDOT(builder, MEAN_MOTION_DDOT);
+  omm.addCOV_REF_FRAME(builder, COV_REF_FRAME);
+  omm.addCX_X(builder, CX_X);
+  omm.addCY_X(builder, CY_X);
+  omm.addCY_Y(builder, CY_Y);
+  omm.addCZ_X(builder, CZ_X);
+  omm.addCZ_Y(builder, CZ_Y);
+  omm.addCZ_Z(builder, CZ_Z);
+  omm.addCX_DOT_X(builder, CX_DOT_X);
+  omm.addCX_DOT_Y(builder, CX_DOT_Y);
+  omm.addCX_DOT_Z(builder, CX_DOT_Z);
+  omm.addCX_DOT_X_DOT(builder, CX_DOT_X_DOT);
+  omm.addCY_DOT_X(builder, CY_DOT_X);
+  omm.addCY_DOT_Y(builder, CY_DOT_Y);
+  omm.addCY_DOT_Z(builder, CY_DOT_Z);
+  omm.addCY_DOT_X_DOT(builder, CY_DOT_X_DOT);
+  omm.addCY_DOT_Y_DOT(builder, CY_DOT_Y_DOT);
+  omm.addCZ_DOT_X(builder, CZ_DOT_X);
+  omm.addCZ_DOT_Y(builder, CZ_DOT_Y);
+  omm.addCZ_DOT_Z(builder, CZ_DOT_Z);
+  omm.addCZ_DOT_X_DOT(builder, CZ_DOT_X_DOT);
+  omm.addCZ_DOT_Y_DOT(builder, CZ_DOT_Y_DOT);
+  omm.addCZ_DOT_Z_DOT(builder, CZ_DOT_Z_DOT);
+  omm.addUSER_DEFINED_BIP_0044_TYPE(builder, USER_DEFINED_BIP_0044_TYPE);
+  omm.addUSER_DEFINED_OBJECT_DESIGNATOR(builder, USER_DEFINED_OBJECT_DESIGNATOROffset);
+  omm.addUSER_DEFINED_EARTH_MODEL(builder, USER_DEFINED_EARTH_MODELOffset);
+  omm.addUSER_DEFINED_EPOCH_TIMESTAMP(builder, USER_DEFINED_EPOCH_TIMESTAMP);
+  omm.addUSER_DEFINED_MICROSECONDS(builder, USER_DEFINED_MICROSECONDS);
   return omm.endomm(builder);
 }
 
 unpack(): ommT {
   return new ommT(
-    this.CCSDSOmmVERS(),
-    this.CREATIONDATE(),
+    this.CCSDS_omm_VERS(),
+    this.CREATION_DATE(),
     this.ORIGINATOR(),
-    this.OBJECTNAME(),
-    this.OBJECTID(),
-    this.CENTERNAME(),
-    this.REFFRAME(),
-    this.REFFRAMEEPOCH(),
-    this.TIMESYSTEM(),
-    this.MEANELEMENTTHEORY(),
+    this.OBJECT_NAME(),
+    this.OBJECT_ID(),
+    this.CENTER_NAME(),
+    this.REF_FRAME(),
+    this.REF_FRAME_EPOCH(),
+    this.TIME_SYSTEM(),
+    this.MEAN_ELEMENT_THEORY(),
     this.CommENT(),
     this.EPOCH(),
-    this.SEMIMAJORAXIS(),
-    this.MEANMOTION(),
+    this.SEMI_MAJOR_AXIS(),
+    this.MEAN_MOTION(),
     this.ECCENTRICITY(),
     this.INCLINATION(),
-    this.RAOFASCNODE(),
-    this.ARGOFPERICENTER(),
-    this.MEANANOMALY(),
+    this.RA_OF_ASC_NODE(),
+    this.ARG_OF_PERICENTER(),
+    this.MEAN_ANOMALY(),
     this.GM(),
     this.MASS(),
-    this.SOLARRADAREA(),
-    this.SOLARRADCOEFF(),
-    this.DRAGAREA(),
-    this.DRAGCOEFF(),
-    this.EPHEMERISTYPE(),
-    this.CLASSIFICATIONTYPE(),
-    this.NORADCATID(),
-    this.ELEMENTSETNO(),
-    this.REVATEPOCH(),
+    this.SOLAR_RAD_AREA(),
+    this.SOLAR_RAD_COEFF(),
+    this.DRAG_AREA(),
+    this.DRAG_COEFF(),
+    this.EPHEMERIS_TYPE(),
+    this.CLASSIFICATION_TYPE(),
+    this.NORAD_CAT_ID(),
+    this.ELEMENT_SET_NO(),
+    this.REV_AT_EPOCH(),
     this.BSTAR(),
-    this.MEANMOTIONDOT(),
-    this.MEANMOTIONDDOT(),
-    this.COVREFFRAME(),
-    this.CXX(),
-    this.CYX(),
-    this.CYY(),
-    this.CZX(),
-    this.CZY(),
-    this.CZZ(),
-    this.CXDOTX(),
-    this.CXDOTY(),
-    this.CXDOTZ(),
-    this.CXDOTXDOT(),
-    this.CYDOTX(),
-    this.CYDOTY(),
-    this.CYDOTZ(),
-    this.CYDOTXDOT(),
-    this.CYDOTYDOT(),
-    this.CZDOTX(),
-    this.CZDOTY(),
-    this.CZDOTZ(),
-    this.CZDOTXDOT(),
-    this.CZDOTYDOT(),
-    this.CZDOTZDOT(),
-    this.USERDEFINEDBIP0044TYPE(),
-    this.USERDEFINEDOBJECTDESIGNATOR(),
-    this.USERDEFINEDEARTHMODEL(),
-    this.USERDEFINEDEPOCHTIMESTAMP(),
-    this.USERDEFINEDMICROSECONDS()
+    this.MEAN_MOTION_DOT(),
+    this.MEAN_MOTION_DDOT(),
+    this.COV_REF_FRAME(),
+    this.CX_X(),
+    this.CY_X(),
+    this.CY_Y(),
+    this.CZ_X(),
+    this.CZ_Y(),
+    this.CZ_Z(),
+    this.CX_DOT_X(),
+    this.CX_DOT_Y(),
+    this.CX_DOT_Z(),
+    this.CX_DOT_X_DOT(),
+    this.CY_DOT_X(),
+    this.CY_DOT_Y(),
+    this.CY_DOT_Z(),
+    this.CY_DOT_X_DOT(),
+    this.CY_DOT_Y_DOT(),
+    this.CZ_DOT_X(),
+    this.CZ_DOT_Y(),
+    this.CZ_DOT_Z(),
+    this.CZ_DOT_X_DOT(),
+    this.CZ_DOT_Y_DOT(),
+    this.CZ_DOT_Z_DOT(),
+    this.USER_DEFINED_BIP_0044_TYPE(),
+    this.USER_DEFINED_OBJECT_DESIGNATOR(),
+    this.USER_DEFINED_EARTH_MODEL(),
+    this.USER_DEFINED_EPOCH_TIMESTAMP(),
+    this.USER_DEFINED_MICROSECONDS()
   );
 }
 
 
 unpackTo(_o: ommT): void {
-  _o.CCSDSOmmVERS = this.CCSDSOmmVERS();
-  _o.CREATIONDATE = this.CREATIONDATE();
+  _o.CCSDS_omm_VERS = this.CCSDS_omm_VERS();
+  _o.CREATION_DATE = this.CREATION_DATE();
   _o.ORIGINATOR = this.ORIGINATOR();
-  _o.OBJECTNAME = this.OBJECTNAME();
-  _o.OBJECTID = this.OBJECTID();
-  _o.CENTERNAME = this.CENTERNAME();
-  _o.REFFRAME = this.REFFRAME();
-  _o.REFFRAMEEPOCH = this.REFFRAMEEPOCH();
-  _o.TIMESYSTEM = this.TIMESYSTEM();
-  _o.MEANELEMENTTHEORY = this.MEANELEMENTTHEORY();
+  _o.OBJECT_NAME = this.OBJECT_NAME();
+  _o.OBJECT_ID = this.OBJECT_ID();
+  _o.CENTER_NAME = this.CENTER_NAME();
+  _o.REF_FRAME = this.REF_FRAME();
+  _o.REF_FRAME_EPOCH = this.REF_FRAME_EPOCH();
+  _o.TIME_SYSTEM = this.TIME_SYSTEM();
+  _o.MEAN_ELEMENT_THEORY = this.MEAN_ELEMENT_THEORY();
   _o.CommENT = this.CommENT();
   _o.EPOCH = this.EPOCH();
-  _o.SEMIMAJORAXIS = this.SEMIMAJORAXIS();
-  _o.MEANMOTION = this.MEANMOTION();
+  _o.SEMI_MAJOR_AXIS = this.SEMI_MAJOR_AXIS();
+  _o.MEAN_MOTION = this.MEAN_MOTION();
   _o.ECCENTRICITY = this.ECCENTRICITY();
   _o.INCLINATION = this.INCLINATION();
-  _o.RAOFASCNODE = this.RAOFASCNODE();
-  _o.ARGOFPERICENTER = this.ARGOFPERICENTER();
-  _o.MEANANOMALY = this.MEANANOMALY();
+  _o.RA_OF_ASC_NODE = this.RA_OF_ASC_NODE();
+  _o.ARG_OF_PERICENTER = this.ARG_OF_PERICENTER();
+  _o.MEAN_ANOMALY = this.MEAN_ANOMALY();
   _o.GM = this.GM();
   _o.MASS = this.MASS();
-  _o.SOLARRADAREA = this.SOLARRADAREA();
-  _o.SOLARRADCOEFF = this.SOLARRADCOEFF();
-  _o.DRAGAREA = this.DRAGAREA();
-  _o.DRAGCOEFF = this.DRAGCOEFF();
-  _o.EPHEMERISTYPE = this.EPHEMERISTYPE();
-  _o.CLASSIFICATIONTYPE = this.CLASSIFICATIONTYPE();
-  _o.NORADCATID = this.NORADCATID();
-  _o.ELEMENTSETNO = this.ELEMENTSETNO();
-  _o.REVATEPOCH = this.REVATEPOCH();
+  _o.SOLAR_RAD_AREA = this.SOLAR_RAD_AREA();
+  _o.SOLAR_RAD_COEFF = this.SOLAR_RAD_COEFF();
+  _o.DRAG_AREA = this.DRAG_AREA();
+  _o.DRAG_COEFF = this.DRAG_COEFF();
+  _o.EPHEMERIS_TYPE = this.EPHEMERIS_TYPE();
+  _o.CLASSIFICATION_TYPE = this.CLASSIFICATION_TYPE();
+  _o.NORAD_CAT_ID = this.NORAD_CAT_ID();
+  _o.ELEMENT_SET_NO = this.ELEMENT_SET_NO();
+  _o.REV_AT_EPOCH = this.REV_AT_EPOCH();
   _o.BSTAR = this.BSTAR();
-  _o.MEANMOTIONDOT = this.MEANMOTIONDOT();
-  _o.MEANMOTIONDDOT = this.MEANMOTIONDDOT();
-  _o.COVREFFRAME = this.COVREFFRAME();
-  _o.CXX = this.CXX();
-  _o.CYX = this.CYX();
-  _o.CYY = this.CYY();
-  _o.CZX = this.CZX();
-  _o.CZY = this.CZY();
-  _o.CZZ = this.CZZ();
-  _o.CXDOTX = this.CXDOTX();
-  _o.CXDOTY = this.CXDOTY();
-  _o.CXDOTZ = this.CXDOTZ();
-  _o.CXDOTXDOT = this.CXDOTXDOT();
-  _o.CYDOTX = this.CYDOTX();
-  _o.CYDOTY = this.CYDOTY();
-  _o.CYDOTZ = this.CYDOTZ();
-  _o.CYDOTXDOT = this.CYDOTXDOT();
-  _o.CYDOTYDOT = this.CYDOTYDOT();
-  _o.CZDOTX = this.CZDOTX();
-  _o.CZDOTY = this.CZDOTY();
-  _o.CZDOTZ = this.CZDOTZ();
-  _o.CZDOTXDOT = this.CZDOTXDOT();
-  _o.CZDOTYDOT = this.CZDOTYDOT();
-  _o.CZDOTZDOT = this.CZDOTZDOT();
-  _o.USERDEFINEDBIP0044TYPE = this.USERDEFINEDBIP0044TYPE();
-  _o.USERDEFINEDOBJECTDESIGNATOR = this.USERDEFINEDOBJECTDESIGNATOR();
-  _o.USERDEFINEDEARTHMODEL = this.USERDEFINEDEARTHMODEL();
-  _o.USERDEFINEDEPOCHTIMESTAMP = this.USERDEFINEDEPOCHTIMESTAMP();
-  _o.USERDEFINEDMICROSECONDS = this.USERDEFINEDMICROSECONDS();
+  _o.MEAN_MOTION_DOT = this.MEAN_MOTION_DOT();
+  _o.MEAN_MOTION_DDOT = this.MEAN_MOTION_DDOT();
+  _o.COV_REF_FRAME = this.COV_REF_FRAME();
+  _o.CX_X = this.CX_X();
+  _o.CY_X = this.CY_X();
+  _o.CY_Y = this.CY_Y();
+  _o.CZ_X = this.CZ_X();
+  _o.CZ_Y = this.CZ_Y();
+  _o.CZ_Z = this.CZ_Z();
+  _o.CX_DOT_X = this.CX_DOT_X();
+  _o.CX_DOT_Y = this.CX_DOT_Y();
+  _o.CX_DOT_Z = this.CX_DOT_Z();
+  _o.CX_DOT_X_DOT = this.CX_DOT_X_DOT();
+  _o.CY_DOT_X = this.CY_DOT_X();
+  _o.CY_DOT_Y = this.CY_DOT_Y();
+  _o.CY_DOT_Z = this.CY_DOT_Z();
+  _o.CY_DOT_X_DOT = this.CY_DOT_X_DOT();
+  _o.CY_DOT_Y_DOT = this.CY_DOT_Y_DOT();
+  _o.CZ_DOT_X = this.CZ_DOT_X();
+  _o.CZ_DOT_Y = this.CZ_DOT_Y();
+  _o.CZ_DOT_Z = this.CZ_DOT_Z();
+  _o.CZ_DOT_X_DOT = this.CZ_DOT_X_DOT();
+  _o.CZ_DOT_Y_DOT = this.CZ_DOT_Y_DOT();
+  _o.CZ_DOT_Z_DOT = this.CZ_DOT_Z_DOT();
+  _o.USER_DEFINED_BIP_0044_TYPE = this.USER_DEFINED_BIP_0044_TYPE();
+  _o.USER_DEFINED_OBJECT_DESIGNATOR = this.USER_DEFINED_OBJECT_DESIGNATOR();
+  _o.USER_DEFINED_EARTH_MODEL = this.USER_DEFINED_EARTH_MODEL();
+  _o.USER_DEFINED_EPOCH_TIMESTAMP = this.USER_DEFINED_EPOCH_TIMESTAMP();
+  _o.USER_DEFINED_MICROSECONDS = this.USER_DEFINED_MICROSECONDS();
 }
 }
 
 export class ommT {
 constructor(
-  public CCSDSOmmVERS: number = 0.0,
-  public CREATIONDATE: string|Uint8Array|null = null,
+  public CCSDS_omm_VERS: number = 0.0,
+  public CREATION_DATE: string|Uint8Array|null = null,
   public ORIGINATOR: string|Uint8Array|null = null,
-  public OBJECTNAME: string|Uint8Array|null = null,
-  public OBJECTID: string|Uint8Array|null = null,
-  public CENTERNAME: string|Uint8Array|null = null,
-  public REFFRAME: referenceFrame = referenceFrame.TEME,
-  public REFFRAMEEPOCH: string|Uint8Array|null = null,
-  public TIMESYSTEM: timeSystem = timeSystem.UTC,
-  public MEANELEMENTTHEORY: meanElementTheory = meanElementTheory.SGP4,
+  public OBJECT_NAME: string|Uint8Array|null = null,
+  public OBJECT_ID: string|Uint8Array|null = null,
+  public CENTER_NAME: string|Uint8Array|null = null,
+  public REF_FRAME: referenceFrame = referenceFrame.TEME,
+  public REF_FRAME_EPOCH: string|Uint8Array|null = null,
+  public TIME_SYSTEM: timeSystem = timeSystem.UTC,
+  public MEAN_ELEMENT_THEORY: meanElementTheory = meanElementTheory.SGP4,
   public CommENT: string|Uint8Array|null = null,
   public EPOCH: string|Uint8Array|null = null,
-  public SEMIMAJORAXIS: number = 0.0,
-  public MEANMOTION: number = 0.0,
+  public SEMI_MAJOR_AXIS: number = 0.0,
+  public MEAN_MOTION: number = 0.0,
   public ECCENTRICITY: number = 0.0,
   public INCLINATION: number = 0.0,
-  public RAOFASCNODE: number = 0.0,
-  public ARGOFPERICENTER: number = 0.0,
-  public MEANANOMALY: number = 0.0,
+  public RA_OF_ASC_NODE: number = 0.0,
+  public ARG_OF_PERICENTER: number = 0.0,
+  public MEAN_ANOMALY: number = 0.0,
   public GM: number = 0.0,
   public MASS: number = 0.0,
-  public SOLARRADAREA: number = 0.0,
-  public SOLARRADCOEFF: number = 0.0,
-  public DRAGAREA: number = 0.0,
-  public DRAGCOEFF: number = 0.0,
-  public EPHEMERISTYPE: ephemerisType = ephemerisType.SGP4,
-  public CLASSIFICATIONTYPE: string|Uint8Array|null = null,
-  public NORADCATID: number = 0,
-  public ELEMENTSETNO: number = 0,
-  public REVATEPOCH: number = 0.0,
+  public SOLAR_RAD_AREA: number = 0.0,
+  public SOLAR_RAD_COEFF: number = 0.0,
+  public DRAG_AREA: number = 0.0,
+  public DRAG_COEFF: number = 0.0,
+  public EPHEMERIS_TYPE: ephemerisType = ephemerisType.SGP4,
+  public CLASSIFICATION_TYPE: string|Uint8Array|null = null,
+  public NORAD_CAT_ID: number = 0,
+  public ELEMENT_SET_NO: number = 0,
+  public REV_AT_EPOCH: number = 0.0,
   public BSTAR: number = 0.0,
-  public MEANMOTIONDOT: number = 0.0,
-  public MEANMOTIONDDOT: number = 0.0,
-  public COVREFFRAME: manCovRefFrame = manCovRefFrame.RSW,
-  public CXX: number = 0.0,
-  public CYX: number = 0.0,
-  public CYY: number = 0.0,
-  public CZX: number = 0.0,
-  public CZY: number = 0.0,
-  public CZZ: number = 0.0,
-  public CXDOTX: number = 0.0,
-  public CXDOTY: number = 0.0,
-  public CXDOTZ: number = 0.0,
-  public CXDOTXDOT: number = 0.0,
-  public CYDOTX: number = 0.0,
-  public CYDOTY: number = 0.0,
-  public CYDOTZ: number = 0.0,
-  public CYDOTXDOT: number = 0.0,
-  public CYDOTYDOT: number = 0.0,
-  public CZDOTX: number = 0.0,
-  public CZDOTY: number = 0.0,
-  public CZDOTZ: number = 0.0,
-  public CZDOTXDOT: number = 0.0,
-  public CZDOTYDOT: number = 0.0,
-  public CZDOTZDOT: number = 0.0,
-  public USERDEFINEDBIP0044TYPE: number = 0,
-  public USERDEFINEDOBJECTDESIGNATOR: string|Uint8Array|null = null,
-  public USERDEFINEDEARTHMODEL: string|Uint8Array|null = null,
-  public USERDEFINEDEPOCHTIMESTAMP: number = 0.0,
-  public USERDEFINEDMICROSECONDS: number = 0.0
+  public MEAN_MOTION_DOT: number = 0.0,
+  public MEAN_MOTION_DDOT: number = 0.0,
+  public COV_REF_FRAME: manCovRefFrame = manCovRefFrame.RSW,
+  public CX_X: number = 0.0,
+  public CY_X: number = 0.0,
+  public CY_Y: number = 0.0,
+  public CZ_X: number = 0.0,
+  public CZ_Y: number = 0.0,
+  public CZ_Z: number = 0.0,
+  public CX_DOT_X: number = 0.0,
+  public CX_DOT_Y: number = 0.0,
+  public CX_DOT_Z: number = 0.0,
+  public CX_DOT_X_DOT: number = 0.0,
+  public CY_DOT_X: number = 0.0,
+  public CY_DOT_Y: number = 0.0,
+  public CY_DOT_Z: number = 0.0,
+  public CY_DOT_X_DOT: number = 0.0,
+  public CY_DOT_Y_DOT: number = 0.0,
+  public CZ_DOT_X: number = 0.0,
+  public CZ_DOT_Y: number = 0.0,
+  public CZ_DOT_Z: number = 0.0,
+  public CZ_DOT_X_DOT: number = 0.0,
+  public CZ_DOT_Y_DOT: number = 0.0,
+  public CZ_DOT_Z_DOT: number = 0.0,
+  public USER_DEFINED_BIP_0044_TYPE: number = 0,
+  public USER_DEFINED_OBJECT_DESIGNATOR: string|Uint8Array|null = null,
+  public USER_DEFINED_EARTH_MODEL: string|Uint8Array|null = null,
+  public USER_DEFINED_EPOCH_TIMESTAMP: number = 0.0,
+  public USER_DEFINED_MICROSECONDS: number = 0.0
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
-  const CREATIONDATE = (this.CREATIONDATE !== null ? builder.createString(this.CREATIONDATE!) : 0);
+  const CREATION_DATE = (this.CREATION_DATE !== null ? builder.createString(this.CREATION_DATE!) : 0);
   const ORIGINATOR = (this.ORIGINATOR !== null ? builder.createString(this.ORIGINATOR!) : 0);
-  const OBJECTNAME = (this.OBJECTNAME !== null ? builder.createString(this.OBJECTNAME!) : 0);
-  const OBJECTID = (this.OBJECTID !== null ? builder.createString(this.OBJECTID!) : 0);
-  const CENTERNAME = (this.CENTERNAME !== null ? builder.createString(this.CENTERNAME!) : 0);
-  const REFFRAMEEPOCH = (this.REFFRAMEEPOCH !== null ? builder.createString(this.REFFRAMEEPOCH!) : 0);
+  const OBJECT_NAME = (this.OBJECT_NAME !== null ? builder.createString(this.OBJECT_NAME!) : 0);
+  const OBJECT_ID = (this.OBJECT_ID !== null ? builder.createString(this.OBJECT_ID!) : 0);
+  const CENTER_NAME = (this.CENTER_NAME !== null ? builder.createString(this.CENTER_NAME!) : 0);
+  const REF_FRAME_EPOCH = (this.REF_FRAME_EPOCH !== null ? builder.createString(this.REF_FRAME_EPOCH!) : 0);
   const CommENT = (this.CommENT !== null ? builder.createString(this.CommENT!) : 0);
   const EPOCH = (this.EPOCH !== null ? builder.createString(this.EPOCH!) : 0);
-  const CLASSIFICATIONTYPE = (this.CLASSIFICATIONTYPE !== null ? builder.createString(this.CLASSIFICATIONTYPE!) : 0);
-  const USERDEFINEDOBJECTDESIGNATOR = (this.USERDEFINEDOBJECTDESIGNATOR !== null ? builder.createString(this.USERDEFINEDOBJECTDESIGNATOR!) : 0);
-  const USERDEFINEDEARTHMODEL = (this.USERDEFINEDEARTHMODEL !== null ? builder.createString(this.USERDEFINEDEARTHMODEL!) : 0);
+  const CLASSIFICATION_TYPE = (this.CLASSIFICATION_TYPE !== null ? builder.createString(this.CLASSIFICATION_TYPE!) : 0);
+  const USER_DEFINED_OBJECT_DESIGNATOR = (this.USER_DEFINED_OBJECT_DESIGNATOR !== null ? builder.createString(this.USER_DEFINED_OBJECT_DESIGNATOR!) : 0);
+  const USER_DEFINED_EARTH_MODEL = (this.USER_DEFINED_EARTH_MODEL !== null ? builder.createString(this.USER_DEFINED_EARTH_MODEL!) : 0);
 
   return omm.createomm(builder,
-    this.CCSDSOmmVERS,
-    CREATIONDATE,
+    this.CCSDS_omm_VERS,
+    CREATION_DATE,
     ORIGINATOR,
-    OBJECTNAME,
-    OBJECTID,
-    CENTERNAME,
-    this.REFFRAME,
-    REFFRAMEEPOCH,
-    this.TIMESYSTEM,
-    this.MEANELEMENTTHEORY,
+    OBJECT_NAME,
+    OBJECT_ID,
+    CENTER_NAME,
+    this.REF_FRAME,
+    REF_FRAME_EPOCH,
+    this.TIME_SYSTEM,
+    this.MEAN_ELEMENT_THEORY,
     CommENT,
     EPOCH,
-    this.SEMIMAJORAXIS,
-    this.MEANMOTION,
+    this.SEMI_MAJOR_AXIS,
+    this.MEAN_MOTION,
     this.ECCENTRICITY,
     this.INCLINATION,
-    this.RAOFASCNODE,
-    this.ARGOFPERICENTER,
-    this.MEANANOMALY,
+    this.RA_OF_ASC_NODE,
+    this.ARG_OF_PERICENTER,
+    this.MEAN_ANOMALY,
     this.GM,
     this.MASS,
-    this.SOLARRADAREA,
-    this.SOLARRADCOEFF,
-    this.DRAGAREA,
-    this.DRAGCOEFF,
-    this.EPHEMERISTYPE,
-    CLASSIFICATIONTYPE,
-    this.NORADCATID,
-    this.ELEMENTSETNO,
-    this.REVATEPOCH,
+    this.SOLAR_RAD_AREA,
+    this.SOLAR_RAD_COEFF,
+    this.DRAG_AREA,
+    this.DRAG_COEFF,
+    this.EPHEMERIS_TYPE,
+    CLASSIFICATION_TYPE,
+    this.NORAD_CAT_ID,
+    this.ELEMENT_SET_NO,
+    this.REV_AT_EPOCH,
     this.BSTAR,
-    this.MEANMOTIONDOT,
-    this.MEANMOTIONDDOT,
-    this.COVREFFRAME,
-    this.CXX,
-    this.CYX,
-    this.CYY,
-    this.CZX,
-    this.CZY,
-    this.CZZ,
-    this.CXDOTX,
-    this.CXDOTY,
-    this.CXDOTZ,
-    this.CXDOTXDOT,
-    this.CYDOTX,
-    this.CYDOTY,
-    this.CYDOTZ,
-    this.CYDOTXDOT,
-    this.CYDOTYDOT,
-    this.CZDOTX,
-    this.CZDOTY,
-    this.CZDOTZ,
-    this.CZDOTXDOT,
-    this.CZDOTYDOT,
-    this.CZDOTZDOT,
-    this.USERDEFINEDBIP0044TYPE,
-    USERDEFINEDOBJECTDESIGNATOR,
-    USERDEFINEDEARTHMODEL,
-    this.USERDEFINEDEPOCHTIMESTAMP,
-    this.USERDEFINEDMICROSECONDS
+    this.MEAN_MOTION_DOT,
+    this.MEAN_MOTION_DDOT,
+    this.COV_REF_FRAME,
+    this.CX_X,
+    this.CY_X,
+    this.CY_Y,
+    this.CZ_X,
+    this.CZ_Y,
+    this.CZ_Z,
+    this.CX_DOT_X,
+    this.CX_DOT_Y,
+    this.CX_DOT_Z,
+    this.CX_DOT_X_DOT,
+    this.CY_DOT_X,
+    this.CY_DOT_Y,
+    this.CY_DOT_Z,
+    this.CY_DOT_X_DOT,
+    this.CY_DOT_Y_DOT,
+    this.CZ_DOT_X,
+    this.CZ_DOT_Y,
+    this.CZ_DOT_Z,
+    this.CZ_DOT_X_DOT,
+    this.CZ_DOT_Y_DOT,
+    this.CZ_DOT_Z_DOT,
+    this.USER_DEFINED_BIP_0044_TYPE,
+    USER_DEFINED_OBJECT_DESIGNATOR,
+    USER_DEFINED_EARTH_MODEL,
+    this.USER_DEFINED_EPOCH_TIMESTAMP,
+    this.USER_DEFINED_MICROSECONDS
   );
 }
 }

@@ -22,7 +22,7 @@ static getSizePrefixedRootAsmpe(bb:flatbuffers.ByteBuffer, obj?:mpe):mpe {
   return (obj || new mpe()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-MEANMOTION():number {
+MEAN_MOTION():number {
   const offset = this.bb!.__offset(this.bb_pos, 4);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
@@ -37,22 +37,22 @@ INCLINATION():number {
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-RAOFASCNODE():number {
+RA_OF_ASC_NODE():number {
   const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-ARGOFPERICENTER():number {
+ARG_OF_PERICENTER():number {
   const offset = this.bb!.__offset(this.bb_pos, 12);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-MEANANOMALY():number {
+MEAN_ANOMALY():number {
   const offset = this.bb!.__offset(this.bb_pos, 14);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-NORADCATID():number {
+NORAD_CAT_ID():number {
   const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.readUint32(this.bb_pos + offset) : 0;
 }
@@ -62,7 +62,7 @@ BSTAR():number {
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
 
-USERDEFINEDEPOCHTIMESTAMP():number {
+USER_DEFINED_EPOCH_TIMESTAMP():number {
   const offset = this.bb!.__offset(this.bb_pos, 20);
   return offset ? this.bb!.readFloat64(this.bb_pos + offset) : 0.0;
 }
@@ -71,8 +71,8 @@ static startmpe(builder:flatbuffers.Builder) {
   builder.startObject(9);
 }
 
-static addMEANMOTION(builder:flatbuffers.Builder, MEANMOTION:number) {
-  builder.addFieldFloat64(0, MEANMOTION, 0.0);
+static addMEAN_MOTION(builder:flatbuffers.Builder, MEAN_MOTION:number) {
+  builder.addFieldFloat64(0, MEAN_MOTION, 0.0);
 }
 
 static addECCENTRICITY(builder:flatbuffers.Builder, ECCENTRICITY:number) {
@@ -83,28 +83,28 @@ static addINCLINATION(builder:flatbuffers.Builder, INCLINATION:number) {
   builder.addFieldFloat64(2, INCLINATION, 0.0);
 }
 
-static addRAOFASCNODE(builder:flatbuffers.Builder, RAOFASCNODE:number) {
-  builder.addFieldFloat64(3, RAOFASCNODE, 0.0);
+static addRA_OF_ASC_NODE(builder:flatbuffers.Builder, RA_OF_ASC_NODE:number) {
+  builder.addFieldFloat64(3, RA_OF_ASC_NODE, 0.0);
 }
 
-static addARGOFPERICENTER(builder:flatbuffers.Builder, ARGOFPERICENTER:number) {
-  builder.addFieldFloat64(4, ARGOFPERICENTER, 0.0);
+static addARG_OF_PERICENTER(builder:flatbuffers.Builder, ARG_OF_PERICENTER:number) {
+  builder.addFieldFloat64(4, ARG_OF_PERICENTER, 0.0);
 }
 
-static addMEANANOMALY(builder:flatbuffers.Builder, MEANANOMALY:number) {
-  builder.addFieldFloat64(5, MEANANOMALY, 0.0);
+static addMEAN_ANOMALY(builder:flatbuffers.Builder, MEAN_ANOMALY:number) {
+  builder.addFieldFloat64(5, MEAN_ANOMALY, 0.0);
 }
 
-static addNORADCATID(builder:flatbuffers.Builder, NORADCATID:number) {
-  builder.addFieldInt32(6, NORADCATID, 0);
+static addNORAD_CAT_ID(builder:flatbuffers.Builder, NORAD_CAT_ID:number) {
+  builder.addFieldInt32(6, NORAD_CAT_ID, 0);
 }
 
 static addBSTAR(builder:flatbuffers.Builder, BSTAR:number) {
   builder.addFieldFloat64(7, BSTAR, 0.0);
 }
 
-static addUSERDEFINEDEPOCHTIMESTAMP(builder:flatbuffers.Builder, USERDEFINEDEPOCHTIMESTAMP:number) {
-  builder.addFieldFloat64(8, USERDEFINEDEPOCHTIMESTAMP, 0.0);
+static addUSER_DEFINED_EPOCH_TIMESTAMP(builder:flatbuffers.Builder, USER_DEFINED_EPOCH_TIMESTAMP:number) {
+  builder.addFieldFloat64(8, USER_DEFINED_EPOCH_TIMESTAMP, 0.0);
 }
 
 static endmpe(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -112,73 +112,73 @@ static endmpe(builder:flatbuffers.Builder):flatbuffers.Offset {
   return offset;
 }
 
-static creatempe(builder:flatbuffers.Builder, MEANMOTION:number, ECCENTRICITY:number, INCLINATION:number, RAOFASCNODE:number, ARGOFPERICENTER:number, MEANANOMALY:number, NORADCATID:number, BSTAR:number, USERDEFINEDEPOCHTIMESTAMP:number):flatbuffers.Offset {
+static creatempe(builder:flatbuffers.Builder, MEAN_MOTION:number, ECCENTRICITY:number, INCLINATION:number, RA_OF_ASC_NODE:number, ARG_OF_PERICENTER:number, MEAN_ANOMALY:number, NORAD_CAT_ID:number, BSTAR:number, USER_DEFINED_EPOCH_TIMESTAMP:number):flatbuffers.Offset {
   mpe.startmpe(builder);
-  mpe.addMEANMOTION(builder, MEANMOTION);
+  mpe.addMEAN_MOTION(builder, MEAN_MOTION);
   mpe.addECCENTRICITY(builder, ECCENTRICITY);
   mpe.addINCLINATION(builder, INCLINATION);
-  mpe.addRAOFASCNODE(builder, RAOFASCNODE);
-  mpe.addARGOFPERICENTER(builder, ARGOFPERICENTER);
-  mpe.addMEANANOMALY(builder, MEANANOMALY);
-  mpe.addNORADCATID(builder, NORADCATID);
+  mpe.addRA_OF_ASC_NODE(builder, RA_OF_ASC_NODE);
+  mpe.addARG_OF_PERICENTER(builder, ARG_OF_PERICENTER);
+  mpe.addMEAN_ANOMALY(builder, MEAN_ANOMALY);
+  mpe.addNORAD_CAT_ID(builder, NORAD_CAT_ID);
   mpe.addBSTAR(builder, BSTAR);
-  mpe.addUSERDEFINEDEPOCHTIMESTAMP(builder, USERDEFINEDEPOCHTIMESTAMP);
+  mpe.addUSER_DEFINED_EPOCH_TIMESTAMP(builder, USER_DEFINED_EPOCH_TIMESTAMP);
   return mpe.endmpe(builder);
 }
 
 unpack(): mpeT {
   return new mpeT(
-    this.MEANMOTION(),
+    this.MEAN_MOTION(),
     this.ECCENTRICITY(),
     this.INCLINATION(),
-    this.RAOFASCNODE(),
-    this.ARGOFPERICENTER(),
-    this.MEANANOMALY(),
-    this.NORADCATID(),
+    this.RA_OF_ASC_NODE(),
+    this.ARG_OF_PERICENTER(),
+    this.MEAN_ANOMALY(),
+    this.NORAD_CAT_ID(),
     this.BSTAR(),
-    this.USERDEFINEDEPOCHTIMESTAMP()
+    this.USER_DEFINED_EPOCH_TIMESTAMP()
   );
 }
 
 
 unpackTo(_o: mpeT): void {
-  _o.MEANMOTION = this.MEANMOTION();
+  _o.MEAN_MOTION = this.MEAN_MOTION();
   _o.ECCENTRICITY = this.ECCENTRICITY();
   _o.INCLINATION = this.INCLINATION();
-  _o.RAOFASCNODE = this.RAOFASCNODE();
-  _o.ARGOFPERICENTER = this.ARGOFPERICENTER();
-  _o.MEANANOMALY = this.MEANANOMALY();
-  _o.NORADCATID = this.NORADCATID();
+  _o.RA_OF_ASC_NODE = this.RA_OF_ASC_NODE();
+  _o.ARG_OF_PERICENTER = this.ARG_OF_PERICENTER();
+  _o.MEAN_ANOMALY = this.MEAN_ANOMALY();
+  _o.NORAD_CAT_ID = this.NORAD_CAT_ID();
   _o.BSTAR = this.BSTAR();
-  _o.USERDEFINEDEPOCHTIMESTAMP = this.USERDEFINEDEPOCHTIMESTAMP();
+  _o.USER_DEFINED_EPOCH_TIMESTAMP = this.USER_DEFINED_EPOCH_TIMESTAMP();
 }
 }
 
 export class mpeT {
 constructor(
-  public MEANMOTION: number = 0.0,
+  public MEAN_MOTION: number = 0.0,
   public ECCENTRICITY: number = 0.0,
   public INCLINATION: number = 0.0,
-  public RAOFASCNODE: number = 0.0,
-  public ARGOFPERICENTER: number = 0.0,
-  public MEANANOMALY: number = 0.0,
-  public NORADCATID: number = 0,
+  public RA_OF_ASC_NODE: number = 0.0,
+  public ARG_OF_PERICENTER: number = 0.0,
+  public MEAN_ANOMALY: number = 0.0,
+  public NORAD_CAT_ID: number = 0,
   public BSTAR: number = 0.0,
-  public USERDEFINEDEPOCHTIMESTAMP: number = 0.0
+  public USER_DEFINED_EPOCH_TIMESTAMP: number = 0.0
 ){}
 
 
 pack(builder:flatbuffers.Builder): flatbuffers.Offset {
   return mpe.creatempe(builder,
-    this.MEANMOTION,
+    this.MEAN_MOTION,
     this.ECCENTRICITY,
     this.INCLINATION,
-    this.RAOFASCNODE,
-    this.ARGOFPERICENTER,
-    this.MEANANOMALY,
-    this.NORADCATID,
+    this.RA_OF_ASC_NODE,
+    this.ARG_OF_PERICENTER,
+    this.MEAN_ANOMALY,
+    this.NORAD_CAT_ID,
     this.BSTAR,
-    this.USERDEFINEDEPOCHTIMESTAMP
+    this.USER_DEFINED_EPOCH_TIMESTAMP
   );
 }
 }
