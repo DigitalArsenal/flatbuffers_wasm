@@ -4974,9 +4974,6 @@ else if (typeof define === 'function' && define['amd'])
 else if (typeof exports === 'object')
   exports["Module"] = Module;
 
-
-console.log(Module);
-
 Module({
 
 }).then(m => {
@@ -5018,7 +5015,12 @@ Module({
   m.FS.mkdir("/my-game");
   m.FS.mkdir("/my-game/sample");
   m.main(["--ts", "/monsterFS.fbs"]);
-  console.log(m.FS.readdir("/"));
-  console.log(m.FS.readFile("/monsterFS.ts", { encoding: "utf8" }));
 
+  const writeDoc = (x) => document.write(x.toString().replaceAll("\n", "<br/>"));
+  m.FS.readdir("/").forEach(f => {
+    if (f.indexOf(".") > 0) {
+      document.write(`<h3>${f}</h3>`);
+      writeDoc(m.FS.readFile(`/${f}`, { encoding: "utf8" }));
+    }
+  })
 })

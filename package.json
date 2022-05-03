@@ -1,7 +1,7 @@
 {
   "name": "flatbuffers.js",
   "type": "module",
-  "version": "1.12.0",
+  "version": "v2.0.5",
   "description": "WebAssembly port of flatbuffers",
   "main": "dist/flatbuffers.js",
   "browser": "dist/browser.flatbuffers.js",
@@ -13,7 +13,7 @@
     "flatbuffers"
   ],
   "author": "digitalarsenal.io",
-  "license": "Apache-2.0",
+  "license": "CC-BY-3.0",
   "bugs": {
     "url": "https://github.com/DigitalArsenal/flatbuffers.js/issues"
   },
