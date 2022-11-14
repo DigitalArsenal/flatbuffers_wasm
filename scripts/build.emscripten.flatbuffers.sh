@@ -16,4 +16,6 @@ sed -i "s/.DELETE_ON_ERROR://" CMakeFiles/flatc.dir/build.make
 emmake make -j 4
 sed -i "s/function callMain(args) {/Module.callMain = Module.main = function callMain(args) {/" flatc.js
 sed -i "s/var FS =/var FS = Module.FS = /" flatc.js
+sed -i "s/require(.*)/{}/" flatc.js
+sed -i "s/__dirname//" flatc.js
 cp flatc.js ../../dist/flatc.cjs

@@ -1,8 +1,6 @@
 let flatc = require("../dist/flatc.cjs");
 let fs = require('fs');
 
-flatc.arguments = ["--js", "-o", "/test", "/test/monster.fbs"];
-
 flatc({
     'noInitialRun': true
 }).then(m => {

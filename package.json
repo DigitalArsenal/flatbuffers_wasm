@@ -39,10 +39,9 @@
   },
   "scripts": {
     "test": "node test/emscripten.test.cjs",
-    "test:cjs": "node --experimental-wasi-unstable-preview1 ./test/test.cjs",
-    "test:main": "node --experimental-wasi-unstable-preview1 ./test/test.js",
+    "test:mjs": "node test/emscripten.test.mjs",
     "build:wasmer": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers && npm run build:transform && npm run build:browser",
-    "build": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers:emscripten && npm run test",
+    "build": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers:emscripten && esbuild ./dist/flatc.cjs --format=esm > dist/flatc.mjs && npm run test && npm run test:mjs",
     "build:transform": "node ./scripts/transform.mjs --src ./src/flatc.wasm --out ./src/flatc.wasm",
     "build:flatbuffers": "./scripts/build.wasi.flatbuffers.sh",
     "build:flatbuffers:emscripten": "./scripts/build.emscripten.flatbuffers.sh",
@@ -54,6 +53,7 @@
     "install:wasienv": "curl https://raw.githubusercontent.com/wasienv/wasienv/master/install.sh | sh"
   },
   "dependencies": {
+    "esbuild": "^0.15.13",
     "rollup-plugin-polyfill-node": "^0.8.0"
   }
 }
