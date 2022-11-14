@@ -41,7 +41,7 @@
     "test": "node test/emscripten.test.cjs",
     "test:mjs": "node test/emscripten.test.mjs",
     "build:wasmer": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers && npm run build:transform && npm run build:browser",
-    "build": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers:emscripten && esbuild ./dist/flatc.cjs --format=esm > dist/flatc.mjs && npm run test && npm run test:mjs",
+    "build": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers:emscripten && esbuild ./dist/flatc.cjs --format=esm > dist/flatc.mjs && node ./scripts/addVersion.mjs && npm run test && npm run test:mjs",
     "build:transform": "node ./scripts/transform.mjs --src ./src/flatc.wasm --out ./src/flatc.wasm",
     "build:flatbuffers": "./scripts/build.wasi.flatbuffers.sh",
     "build:flatbuffers:emscripten": "./scripts/build.emscripten.flatbuffers.sh",
