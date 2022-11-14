@@ -1,7 +1,7 @@
 {
   "name": "flatbuffers.js",
   "type": "module",
-  "version": "v22.9.29",
+  "version": "v22.10.26",
   "description": "WebAssembly port of flatbuffers",
   "main": "dist/flatbuffers.js",
   "browser": "dist/browser.flatbuffers.js",
