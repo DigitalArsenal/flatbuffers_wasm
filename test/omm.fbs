@@ -33,9 +33,7 @@ enum ephemerisType : byte {
  /// Simplified General Perturbation Model 8
  SGP8,
  /// Simplified Deep Space Perturbation Model 8
- SDP8,
- /// SGP4-XP
- SGP4XP
+ SDP8
 }
 
 enum timeSystem : byte {
@@ -75,7 +73,7 @@ enum meanElementTheory : byte {
 }
 
 enum manCovRefFrame : byte {
-  // Another name for ‘Radial, Transverse, Normal’
+  // Another name for âRadial, Transverse, Normalâ
   RSW,
   // Radial, Transverse, Normal
   RTN,
@@ -160,7 +158,7 @@ table OMM {
   USER_DEFINED_MICROSECONDS: double;
 }
 
-table mpe {
+table MPE {
   MEAN_MOTION:double;
   ECCENTRICITY:double;
   INCLINATION:double;
@@ -172,12 +170,12 @@ table mpe {
   USER_DEFINED_EPOCH_TIMESTAMP: double;
 }
 
-table OMMcollection {
+table OMMCOLLECTION {
   RECORDS:[OMM];
 }
 
-table mpecollection {
-  RECORDS:[mpe];
+table MPECOLLECTION {
+  RECORDS:[MPE];
 }
 
 root_type OMM;
