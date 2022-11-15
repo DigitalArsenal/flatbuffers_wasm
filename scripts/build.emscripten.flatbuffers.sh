@@ -11,6 +11,7 @@ sed -i "s/\"read_/\"read/" src/idl_gen_ts.cpp
 sed -i "s/mkdir.*;/return;/" src/util.cpp
 sed -i "s/if (binary) {/if (false) {/" src/util.cpp
 sed -i "s/if (DirExists(name)) return false;//" src/util.cpp
+#sed -i "s/\.js//" src/idl_gen_ts.cpp
 sed -i "s/!IsLowerSnakeCase(name)/false/" src/idl_parser.cpp
 #cp ../../scripts/replacements/idl_parser.cpp src/idl_parser.cpp
 #cp ../../scripts/replacements/bfbs_gen.h src/bfbs_gen.h
