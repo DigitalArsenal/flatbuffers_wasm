@@ -3,10 +3,11 @@ STR=v22.10.26
 export PATH=$PATH:/home/tj/software/emsdk/upstream/emscripten/
 cd ./packages/flatbuffers
 git clean -fxd
-git reset HEAD --hard
-git checkout $STR
+#git reset HEAD --hard
+#git checkout $STR
 sed -i "s/#ifdef FLATBUFFERS_NO_ABSOLUTE_PATH_RESOLUTION/#if 1/" src/util.cpp
 #sed -i "s/if.*kKeep)//" src/util.cpp
+cp ../../scripts/replacements/util.cpp src/util.cpp
 sed -i "s/\"read_/\"read/" src/idl_gen_ts.cpp
 sed -i "s/mkdir.*;/return;/" src/util.cpp
 sed -i "s/if (binary) {/if (false) {/" src/util.cpp

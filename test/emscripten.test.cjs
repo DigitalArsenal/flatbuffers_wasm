@@ -12,5 +12,5 @@ flatc({
     m.main(["--help"]);
     m.main(["--ts", "/OMM.module.fbs"]);
     console.log(m.FS.readdir("/"));
-    console.log(m.FS.readFile("/omm.ts", e));
+    console.log(m.FS.readFile("/OMM.ts", e));
 })
