@@ -64,9 +64,10 @@ static bool FileExistsRaw(const char *name) {
 }
 
 static bool LoadFileRaw(const char *name, bool binary, std::string *buf) {
+  if (DirExists(name)) return false;
   std::ifstream ifs(name, binary ? std::ifstream::binary : std::ifstream::in);
   if (!ifs.is_open()) return false;
-  if (false) {
+  if (binary) {
     // The fastest way to read a file into a string.
     ifs.seekg(0, std::ios::end);
     auto size = ifs.tellg();
@@ -322,9 +323,9 @@ void EnsureDirExists(const std::string &filepath) {
     // clang-format off
 
   #ifdef _WIN32
-    (void)_return;
+    (void)_mkdir(filepath.c_str());
   #else
-    return;
+    mkdir(filepath.c_str(), S_IRWXU|S_IRGRP|S_IXGRP);
   #endif
   // clang-format on
 }
@@ -332,7 +333,7 @@ void EnsureDirExists(const std::string &filepath) {
 std::string AbsolutePath(const std::string &filepath) {
   // clang-format off
 
-  #if 1
+  #ifdef FLATBUFFERS_NO_ABSOLUTE_PATH_RESOLUTION
     return filepath;
   #else
     #if defined(_WIN32) || defined(__MINGW32__) || defined(__MINGW64__) || defined(__CYGWIN__)
@@ -429,7 +430,7 @@ bool ReadEnvironmentVariable(const char *var_name, std::string *_value) {
   return true;
 }
 
-bool AllUpperCase(const std::string strinput) {
+static bool AllUpperCase(const std::string &strinput) {
   for (char c : strinput) {
     if (isalpha(c) && !isupper(c)) { return false; }
   }
@@ -438,7 +439,8 @@ bool AllUpperCase(const std::string strinput) {
 
 std::string ConvertCase(const std::string &input, Case output_case,
                         Case input_case) {
-  if (output_case == Case::kKeep || AllUpperCase(input)) return input;
+  if (AllUpperCase(input)) return input;
+  if (output_case == Case::kKeep) return input;
   // The output cases expect snake_case inputs, so if we don't have that input
   // format, try to convert to snake_case.
   switch (input_case) {
