@@ -48,7 +48,7 @@
     "build:browser": "rollup -c ./scripts/rollup.config.js",
     "dev": "nodemon -w src --exec 'npm run build:browser && npm run test'",
     "dev:server": "node test/server.js",
-    "dev:test": "nodemon -w test --exec 'npm run test:main'",
+    "dev:test": "nodemon -w test --exec 'npm run test'",
     "install": "git submodule init && git submodule update && git submodule foreach git pull origin master &&  git submodule foreach git clean -fxd && git submodule foreach git reset HEAD --hard && git submodule foreach git pull origin master && git submodule update && npm run build",
     "install:wasienv": "curl https://raw.githubusercontent.com/wasienv/wasienv/master/install.sh | sh"
   },

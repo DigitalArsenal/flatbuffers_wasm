@@ -10,7 +10,7 @@ flatc({
     .replace(/namespace .*/g, "")
     );
     m.main(["--help"]);
-    m.main(["--jsonschema", "/OMM.module.fbs"]);
+    m.main(["--python", "/OMM.module.fbs"]);
     console.log(m.FS.readdir("/"));
-    console.log(m.FS.readFile("/OMM.module.schema.json", e));
+    console.log(m.FS.readFile("/OMM.py", e));
 })
