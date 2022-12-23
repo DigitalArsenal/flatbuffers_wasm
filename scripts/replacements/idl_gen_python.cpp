@@ -469,7 +469,8 @@ class PythonGenerator : public BaseGenerator {
     } else {
       code += GenIndents(2) + "return ";
       code += "self._tab.GetArrayAsNumpy(flatbuffers.number_types.";
-      code += ToCamelCase(namer_.Method(GenTypeGet(field.value.type.VectorType())), true);
+      code += ToCamelCase(
+          namer_.Method(GenTypeGet(field.value.type.VectorType())), true);
       code += "Flags, self._tab.Pos + " + NumToString(field.value.offset) +
               ", " + NumToString("self." + namer_.Method(field) + "Length()") +
               ")\n";
@@ -600,7 +601,8 @@ class PythonGenerator : public BaseGenerator {
                             code_ptr, index + 1, in_array);
         } else {
           code += IsArray(field_type) ? "    " : "";
-          code += indent + "    builder.Prepend" + GenMethod(field) + "(";
+          code += indent + "    builder.Prepend" +
+                  ToCamelCase(GenMethod(field), true) + "(";
           code += nameprefix + namer_.Variable(field);
           size_t array_cnt = index + (IsArray(field_type) ? 1 : 0);
           for (size_t i = 0; in_array && i < array_cnt; i++) {
@@ -648,7 +650,7 @@ class PythonGenerator : public BaseGenerator {
     code += field_var;
     code += "): ";
     code += "builder.Prepend";
-    code += GenMethod(field) + "Slot(";
+    code += ToCamelCase(GenMethod(field), true) + "Slot(";
     code += NumToString(offset) + ", ";
     if (!IsScalar(field.value.type.base_type) && (!struct_def.fixed)) {
       code += "flatbuffers.number_types.UOffsetTFlags.py_type";
