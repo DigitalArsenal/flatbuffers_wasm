@@ -5,12 +5,12 @@ flatc({
     'noInitialRun': true
 }).then(m => {
     let e = { encoding: "utf8" };
-    m.FS.writeFile("/OMM.module.fbs", 
-    fs.readFileSync('./test/omm.fbs', e)
-    .replace(/namespace .*/g, "")
+    m.FS.writeFile("/OMM.module.fbs",
+        fs.readFileSync('./test/omm.fbs', e)
+            .replace(/namespace .*/g, "")
     );
     m.main(["--help"]);
-    m.main(["--ts", "/OMM.module.fbs"]);
+    m.main(["--ts", "--gen-object-api", "/OMM.module.fbs"]);
     console.log(m.FS.readdir("/"));
-    console.log(m.FS.readFile("/OMM.ts", e));
+    //console.log(m.FS.readFile("/OMM.ts", e));
 })
