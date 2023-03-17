@@ -1,5 +1,5 @@
 #!/bin/sh
-STR=v22.10.26
+STR=v23.3.3
 export PATH=$PATH:/home/tj/software/emsdk/upstream/emscripten/
 cd ./packages/flatbuffers
 git clean -fxd

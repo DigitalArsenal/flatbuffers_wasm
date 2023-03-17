@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from "fs";
+import packageJSON from "../package.json" assert {type: "json"};
 
-const { version } = JSON.parse(readFileSync("./package.json", "utf8"));
+const { version } = JSON.parse(readFileSync("./packages/flatbuffers/package.json", "utf8"));
 console.log(version);
 
 let sourceExt = ["cjs", "mjs"];
@@ -14,3 +15,7 @@ sourceExt
   .forEach((s, i) => {
     writeFileSync(`./dist/flatc.${sourceExt[i]}`, s);
   });
+
+packageJSON.version = version;
+
+writeFileSync("package.json", JSON.stringify(packageJSON, null, 4));

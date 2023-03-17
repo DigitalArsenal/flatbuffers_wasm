@@ -1,59 +1,59 @@
 {
-  "name": "flatbuffers.js",
-  "type": "module",
-  "version": "v22.10.26",
-  "description": "WebAssembly port of flatbuffers",
-  "main": "dist/flatbuffers.js",
-  "browser": "dist/browser.flatbuffers.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DigitalArsenal/flatbuffers.js.git"
-  },
-  "keywords": [
-    "flatbuffers"
-  ],
-  "author": "digitalarsenal.io",
-  "license": "CC-BY-3.0",
-  "bugs": {
-    "url": "https://github.com/DigitalArsenal/flatbuffers.js/issues"
-  },
-  "homepage": "https://github.com/DigitalArsenal/flatbuffers.js#readme",
-  "devDependencies": {
-    "@rollup/plugin-replace": "^2.2.0",
-    "@wasmer/wasi": "*",
-    "@wasmer/wasm-transformer": "*",
-    "@wasmer/wasmfs": "*",
-    "bl": ">=0.9.5",
-    "browserfs": "^1.4.3",
-    "express": "^4.17.1",
-    "nodemon": "^1.19.4",
-    "optimist": "^0.6.1",
-    "rollup": "^1.26.0",
-    "rollup-plugin-brotli": "^2.0.1",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.3.0",
-    "rollup-plugin-url": "^3.0.0",
-    "serve-index": "^1.9.1"
-  },
-  "scripts": {
-    "test": "node test/emscripten.test.cjs",
-    "test:mjs": "node test/emscripten.test.mjs",
-    "build:wasmer": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers && npm run build:transform && npm run build:browser",
-    "build": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers:emscripten && esbuild ./dist/flatc.cjs --format=esm > dist/flatc.mjs && node ./scripts/addVersion.mjs && npm run test && npm run test:mjs",
-    "build:transform": "node ./scripts/transform.mjs --src ./src/flatc.wasm --out ./src/flatc.wasm",
-    "build:flatbuffers": "./scripts/build.wasi.flatbuffers.sh",
-    "build:flatbuffers:emscripten": "./scripts/build.emscripten.flatbuffers.sh",
-    "build:browser": "rollup -c ./scripts/rollup.config.js",
-    "dev": "nodemon -w src --exec 'npm run build:browser && npm run test'",
-    "dev:server": "node test/server.js",
-    "dev:test": "nodemon -w test --exec 'npm run test'",
-    "install": "git submodule init && git submodule update && git submodule foreach git pull origin master &&  git submodule foreach git clean -fxd && git submodule foreach git reset HEAD --hard && git submodule foreach git pull origin master && git submodule update && npm run build",
-    "install:wasienv": "curl https://raw.githubusercontent.com/wasienv/wasienv/master/install.sh | sh"
-  },
-  "dependencies": {
-    "esbuild": "^0.15.13",
-    "rollup-plugin-polyfill-node": "^0.8.0"
-  }
+    "name": "flatbuffers.js",
+    "type": "module",
+    "version": "23.3.3",
+    "description": "WebAssembly port of flatbuffers",
+    "main": "dist/flatbuffers.js",
+    "browser": "dist/browser.flatbuffers.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DigitalArsenal/flatbuffers.js.git"
+    },
+    "keywords": [
+        "flatbuffers"
+    ],
+    "author": "digitalarsenal.io",
+    "license": "CC-BY-3.0",
+    "bugs": {
+        "url": "https://github.com/DigitalArsenal/flatbuffers.js/issues"
+    },
+    "homepage": "https://github.com/DigitalArsenal/flatbuffers.js#readme",
+    "devDependencies": {
+        "@rollup/plugin-replace": "^2.2.0",
+        "@wasmer/wasi": "*",
+        "@wasmer/wasm-transformer": "*",
+        "@wasmer/wasmfs": "*",
+        "bl": ">=0.9.5",
+        "browserfs": "^1.4.3",
+        "express": "^4.17.1",
+        "nodemon": "^1.19.4",
+        "optimist": "^0.6.1",
+        "rollup": "^1.26.0",
+        "rollup-plugin-brotli": "^2.0.1",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-builtins": "^2.1.2",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-terser": "^5.3.0",
+        "rollup-plugin-url": "^3.0.0",
+        "serve-index": "^1.9.1"
+    },
+    "scripts": {
+        "test": "node test/emscripten.test.cjs",
+        "test:mjs": "node test/emscripten.test.mjs",
+        "build:wasmer": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers && npm run build:transform && npm run build:browser",
+        "build": "mkdir -p dist && rm -rf dist/*.* && npm run build:flatbuffers:emscripten && esbuild ./dist/flatc.cjs --format=esm > dist/flatc.mjs && node ./scripts/addVersion.mjs && npm run test && npm run test:mjs",
+        "build:transform": "node ./scripts/transform.mjs --src ./src/flatc.wasm --out ./src/flatc.wasm",
+        "build:flatbuffers": "./scripts/build.wasi.flatbuffers.sh",
+        "build:flatbuffers:emscripten": "./scripts/build.emscripten.flatbuffers.sh",
+        "build:browser": "rollup -c ./scripts/rollup.config.js",
+        "dev": "nodemon -w src --exec 'npm run build:browser && npm run test'",
+        "dev:server": "node test/server.js",
+        "dev:test": "nodemon -w test --exec 'npm run test'",
+        "install": "git submodule init && npm run build",
+        "install:wasienv": "curl https://raw.githubusercontent.com/wasienv/wasienv/master/install.sh | sh"
+    },
+    "dependencies": {
+        "esbuild": "^0.15.13",
+        "rollup-plugin-polyfill-node": "^0.8.0"
+    }
 }
